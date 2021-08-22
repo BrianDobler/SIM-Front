@@ -18,7 +18,7 @@ import { TercertpComponent } from './components/tercertp/tercertp.component';
   imports: [
     BrowserModule
   ],
-  providers: [[]],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
