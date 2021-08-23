@@ -1,7 +1,12 @@
 <div class="container">
+    
     <div class="mb-3">
-        <input class="form-control" type="file" id="formFile">
+        <input class="form-control" type="file" (change)="onFileSelected($event)" id="formFile">
     </div>
+    <div class="container-2">
+        <button type="button" (click)="onUpload()" class="btn btn-outline-secondary">Submit file</button>
+    </div>
+    
     <div class="wrapper">
         <table class="table">
           <thead>
@@ -10,10 +15,7 @@
               <th>Value</th>
             </tr>
           </thead>
-          <tbody>
-            
-          </tbody>
+          <tbody id="randomTable"></tbody>
         </table>
-      </div>
-
+    </div>
 </div>
