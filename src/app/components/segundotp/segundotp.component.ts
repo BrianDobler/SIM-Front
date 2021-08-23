@@ -17,15 +17,7 @@ export class SegundotpComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
-    
-    const table = <HTMLTableElement> document.getElementById("randomTable");
-
-    this.selectedFile.forEach( element => {
-      let row = table.insertRow();
-      
-    });
     console.log(this.selectedFile);
-
   }
 
   onUpload() {
