@@ -1,0 +1,15 @@
+.container {
+    margin-top: 25px;
+    align-content: center;
+}
+
+.mb-3 {
+    margin: auto;
+}
+
+.wrapper {
+    border: 0.5px solid #ddd;
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+  }
