@@ -1,11 +1,7 @@
 .container {
     margin-top: 25px;
+    margin-bottom: 25px;
     align-content: center;
-}
-
-.mb-3 {
-    margin: auto;
-
 }
 
 .wrapper {
@@ -15,6 +11,7 @@
     overflow-y: auto;
 }
 
-.container-2 {
+.btn-group {
+    margin-top: 25px;
     margin-bottom: 25px;
 }

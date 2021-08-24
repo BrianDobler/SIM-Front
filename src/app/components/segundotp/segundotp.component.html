@@ -1,21 +1,11 @@
 <div class="container">
-    
-    <div class="mb-3">
-        <input class="form-control" type="file" (change)="onFileSelected($event)" id="formFile">
-    </div>
-    <div class="container-2">
-        <button type="button" (click)="onUpload()" class="btn btn-outline-secondary">Submit file</button>
+    <div>
+        <h4>Seleccione la muestra aleatoria a evaluar:</h4>
     </div>
     
-    <div class="wrapper">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Number</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody id="randomTable"></tbody>
-        </table>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" (click)="taxis()">Taxis</button>
+        <button type="button" class="btn btn-primary" (click)="france()">Accidentes en francia</button>    
     </div>
+
 </div>
