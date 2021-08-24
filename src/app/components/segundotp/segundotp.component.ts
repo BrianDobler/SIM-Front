@@ -12,7 +12,13 @@ export class SegundotpComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    
+  }
+  
+  selectedFile: any = null;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
   }
 
   taxis() {
