@@ -6,19 +6,16 @@ import { SegundotpComponent } from './components/segundotp/segundotp.component';
 import { TercertpComponent } from './components/tercertp/tercertp.component';
 
 
-const routes: Routes = 
-[
+const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'components/inicio', component: InicioComponent },
   { path: 'components/primertp', component: PrimertpComponent },
   { path: 'components/segundotp', component: SegundotpComponent },
   { path: 'components/tercertp', component: TercertpComponent },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
-
 export class AppRoutingModule { }

@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "805394f7-2656-4c6c-8de3-1af058370b03"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TP-SIM": {
+    "TPSIM": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/TP-SIM",
+            "outputPath": "dist/TPSIM",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,9 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -71,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TP-SIM:build:production"
+              "browserTarget": "TPSIM:build:production"
             },
             "development": {
-              "browserTarget": "TP-SIM:build:development"
+              "browserTarget": "TPSIM:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TP-SIM:build"
+            "browserTarget": "TPSIM:build"
           }
         },
         "test": {
@@ -105,5 +106,5 @@
       }
     }
   },
-  "defaultProject": "TP-SIM"
+  "defaultProject": "TPSIM"
 }

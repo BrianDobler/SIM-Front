@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/TP-SIM'),
+      dir: require('path').join(__dirname, './coverage/TPSIM'),
       subdir: '.',
       reporters: [
         { type: 'html' },
