@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
