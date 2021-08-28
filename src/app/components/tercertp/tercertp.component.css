@@ -1,6 +1,7 @@
 .container {
     margin-top: 25px;
     align-content: center;
+    background-color:#d4f0dd;
 }
 
 .mb-3 {
@@ -8,8 +9,13 @@
 
 }
 
+.dropdown > .dropdown-menu:hover{
+    /*Modifica lo que quieras*/
+    background:rgb(7, 121, 156);
+}
+
 .wrapper {
-    border: 0.5px solid #ddd;
+    border: 0.5px solid #d4f0dd;
     width: 100%;
     height: 300px;
     overflow-y: auto;
