@@ -10,6 +10,8 @@ export class SegundotpComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
+  Titulo = "SegundoTP";
+
   ngOnInit(): void {
   }
   
@@ -24,7 +26,7 @@ export class SegundotpComponent implements OnInit {
     console.log("taxis")
   }
  
-  france() {
-    console.log("france")
+  masa() {
+    console.log("masa")
   }
 }
