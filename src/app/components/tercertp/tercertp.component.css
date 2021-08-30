@@ -1,22 +1,4 @@
-.container {
-    margin-top: 25px;
-    align-content: center;
-    background-color:#d4f0dd;
-}
-
-.mb-3 {
-    margin: auto;
-
-}
-
-.dropdown > .dropdown-menu:hover{
-    /*Modifica lo que quieras*/
-    background:rgb(7, 121, 156);
-}
-
-.wrapper {
-    border: 0.5px solid #d4f0dd;
-    width: 100%;
+.body {
     height: 300px;
-    overflow-y: auto;
+    overflow: auto;
 }

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TercertpComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  
   ngOnInit(): void {
   }
 
+  requestData: any;
+  request() {
+     this.http.get("http://localhost:8080/api/poisson-distribution?lambda=4&numberOfSamples=500").subscribe(data => {
+      this.requestData = data;
+
+      console.log(this.requestData)
+    })
+  }
+
+  distributions = [
+    'Uniforme',
+    'Poisson',
+    'Normal',
+    'Exponencial'
+  ]
+  
+
 }
+
