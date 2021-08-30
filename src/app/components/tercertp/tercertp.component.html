@@ -10,8 +10,22 @@
           </h3>
         </div>
         <div class="panel-body">
+
+
+          <div class="row mt-5">
+            <div class="col-4">
+              <select class="form-select" #nomselec (change)='seleccion(nomselec.value)' aria-label="Default select example">
+                <option selected hidden>Tipos de Distribuciones</option>
+                <option value="uniforme">Uniforme</option>
+                <option value="exponencial">Exponencial</option>
+                <option value="poisson">Poisson</option>
+                <option value="normal">Normal</option>
+              </select>
+            </div>
+          </div>
             
-          <div class="dropdown"><br>  <br>           
+          <!-- <div class="dropdown"><br>  <br>  
+
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Tipos de Distribuciones
             </button>
@@ -21,6 +35,36 @@
               <li><a class="dropdown-item" href="#">Poisson</a></li>              
               <li><a class="dropdown-item" href="#">Normal</a></li>
             </ul>
+          </div> -->
+
+          <div class="row mt-5" *ngIf="tiposDistribuciones ==='uniforme'">
+            
+            <div class="col">
+              uniforme
+
+            </div>
+
+          </div>
+          <div class="row mt-5" *ngIf="tiposDistribuciones ==='exponencial'">
+            
+            <div class="col">
+              exponencial
+
+            </div>
+          </div>
+          <div class="row mt-5" *ngIf="tiposDistribuciones ==='poisson'">
+            
+            <div class="col">
+              poisson
+
+            </div>
+          </div>
+          <div class="row mt-5" *ngIf="tiposDistribuciones ==='normal'">
+            
+            <div class="col">
+              normal
+
+            </div>
           </div>
   
         </div>

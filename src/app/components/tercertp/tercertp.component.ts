@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TercertpComponent implements OnInit {
 
+  tiposDistribuciones:string | undefined ;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  seleccion(value:string){
+    console.log(value);
+    this.tiposDistribuciones = value;
+
   }
 
 }
