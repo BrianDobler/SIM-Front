@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tercertp',
@@ -9,7 +10,7 @@ export class TercertpComponent implements OnInit {
 
   tiposDistribuciones:string | undefined ;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -20,4 +21,19 @@ export class TercertpComponent implements OnInit {
 
   }
 
+  requestData: any;
+  request() {
+     this.http.get("http://localhost:8080/api/poisson-distribution?lambda=4&numberOfSamples=500").subscribe(data => {
+      this.requestData = data;
+
+      console.log(this.requestData)
+    })
+  }
+
+  distributions = [
+    'Uniforme',
+    'Poisson',
+    'Normal',
+    'Exponencial'
+  ]
 }

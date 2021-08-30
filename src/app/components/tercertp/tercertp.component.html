@@ -23,19 +23,6 @@
               </select>
             </div>
           </div>
-            
-          <!-- <div class="dropdown"><br>  <br>  
-
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Tipos de Distribuciones
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Uniforme</a></li>
-              <li><a class="dropdown-item" href="#">Exponencial</a></li>
-              <li><a class="dropdown-item" href="#">Poisson</a></li>              
-              <li><a class="dropdown-item" href="#">Normal</a></li>
-            </ul>
-          </div> -->
 
           <div class="row mt-5" *ngIf="tiposDistribuciones ==='uniforme'">
             
@@ -68,11 +55,25 @@
           </div>
   
         </div>
-        <br><br>
-
+        <br>
+        <div class="header">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"><p class="text-center">Indice</p></th>
+                <th scope="col"><p class="text-center">Valor Generado</p></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="body">
+          <table class="table table-hover">
+            <tr *ngFor="let i of requestData; index as idx">
+              <th scope="row"><p class="text-center">{{idx + 1}}</p></th>
+              <th scope="row"><p class="text-center">{{i}}</p></th>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>  
   </div>
-
-<!--Funcionalidad botones del dropdown-->
-
