@@ -21,6 +21,9 @@ export class TercertpComponent implements OnInit {
 
   }
 
+  baseUrl = 'http://localhost:8080/api/';
+  
+
   requestData: any;
   request() {
      this.http.get("http://localhost:8080/api/poisson-distribution?lambda=4&numberOfSamples=500").subscribe(data => {
