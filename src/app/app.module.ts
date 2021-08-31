@@ -27,6 +27,7 @@ import { TercertpComponent } from './components/tercertp/tercertp.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    
     ChartsModule
   ],
   providers: [],
