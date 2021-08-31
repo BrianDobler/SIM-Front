@@ -76,7 +76,7 @@ export class TercertpComponent implements OnInit {
         this.url = 
         'poisson-distribution' + this.url +
         this.poissonDistributionForm.value['numberOfSamples'] +
-        '&lambda=' + this.exponentialDistributionForm.value['lambda'];
+        '&lambda=' + this.poissonDistributionForm.value['lambda'];
 
         break;
       
