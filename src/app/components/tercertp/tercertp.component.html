@@ -20,11 +20,11 @@
                   <option value="uniform-distribution">Uniforme</option>
                   <option value="exponential-distribution">Exponencial</option>
                   <option value="poisson-distribution">Poisson</option>
-                  <option value="normal-distribution">Normal</option>                  
+                  <option value="normal-distribution">Normal</option>
                 </select>
               </div>
             </div>
-            
+
 
             <form [formGroup]="uniformDistributionForm" (ngSubmit)="onSubmit()">
               <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='uniform-distribution'">
@@ -35,37 +35,37 @@
                       <input formControlName="a" type="text" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default">
                     </div>
-                  </div>            
+                  </div>
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Parametro B</span>
                       <input formControlName="b" type="text" class="form-control" aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default">
                     </div>
-                  </div>            
+                  </div>
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Cantidad muestras</span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfSamples" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
-                  </div>            
+                  </div>
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>            
+                      <input formControlName="numberOfIntervals" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
                   </div>
                 </div>
 
-                  <div class="row">
-                    <div class="col">
-                      <button class="btn btn-success" type="submit">Generar distribucion</button>
-                    </div>
-                  </div>                  
-                </div>            
-            
+                <div class="row">
+                  <div class="col">
+                    <button class="btn btn-success" type="submit">Generar distribucion</button>
+                  </div>
+                </div>
+              </div>
+
             </form>
 
 
@@ -79,31 +79,31 @@
                         aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
-            
+
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfSamples" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
-            
+
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfIntervals" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
                 </div>
-            
+
                 <div class="row mt-3">
                   <div class="col">
                     <button class="btn btn-success" type="submit">Generar distribucion</button>
                   </div>
                 </div>
-              </div>          
-            
+              </div>
+
             </form>
 
 
@@ -119,30 +119,30 @@
                         aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
-            
+
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfSamples" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfIntervals" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
                 </div>
-            
+
                 <div class="row mt-3">
                   <div class="col">
                     <button class="btn btn-success" type="submit">Generar distribucion</button>
                   </div>
                 </div>
-              </div>          
-            
+              </div>
+
             </form>
 
 
@@ -157,7 +157,7 @@
                         aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
-            
+
                   <div class="col">
                     <div class="input-group mb-4">
                       <span class="input-group-text" id="inputGroup-sizing-default">Parametro ς -Sigma-</span>
@@ -165,24 +165,24 @@
                         aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
-            
+
                   <div class="col">
                     <div class="input-group mb-4">
                       <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar</span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfSamples" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
-            
+
                   <div class="col">
                     <div class="input-group mb-3">
                       <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
+                      <input formControlName="numberOfIntervals" type="text" class="form-control"
+                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                     </div>
                   </div>
                 </div>
-            
+
                 <div class="row mt-3">
                   <div class="col">
                     <button class="btn btn-success" type="submit">Generar distribucion</button>
