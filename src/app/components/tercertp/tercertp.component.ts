@@ -11,7 +11,7 @@ import { Chart } from 'chart.js';
 export class TercertpComponent implements OnInit {
 
     tiposDistribuciones = '';
-    baseUrl = 'http://localhost:8080/api/';
+    baseUrl = 'https://simulacion-api.herokuapp.com/api/';
     url = '?numberOfSamples=';
 
     constructor(

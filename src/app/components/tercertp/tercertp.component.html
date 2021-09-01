@@ -170,34 +170,34 @@
   </div>
   <br>
   <div class="container border border-4">
-  <div class="header">
-    <table class="table">
-      <thead>
-        <tr>
+    <div class="header">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="row">
+              <p class="text-center">Indice</p>
+            </th>
+            <th scope="row">
+              <p class="text-center">Valor Generado</p>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+
+    <div class="body">
+      <table class="table">
+        <tr *ngFor="let i of generatedSeries; index as idx">
           <th scope="row">
-            <p class="text-center">Indice</p>
+            <p class="text-center">{{idx + 1}}</p>
           </th>
           <th scope="row">
-            <p class="text-center">Valor Generado</p>
+            <p class="text-center">{{i}}</p>
           </th>
         </tr>
-      </thead>
-    </table>
-  </div>
-  
-
-  <div class="body">
-    <table class="table">
-      <tr *ngFor="let i of generatedSeries; index as idx">
-        <th scope="row">
-          <p class="text-center">{{idx + 1}}</p>
-        </th>
-        <th scope="row">
-          <p class="text-center">{{i}}</p>
-        </th>
-      </tr>
-    </table>
-  </div>
+      </table>
+    </div>
   </div>
 
   <div class="container">
@@ -209,7 +209,7 @@
     </div>
     <div class="row text-center mb-3">
       <div class="col">
-          <canvas id="myChart"></canvas>
+        <canvas id="myChart"></canvas>
       </div>
     </div>
   </div>
