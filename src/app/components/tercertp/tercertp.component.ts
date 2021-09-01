@@ -28,23 +28,27 @@ export class TercertpComponent implements OnInit {
   uniformDistributionForm = this.formBuilder.group({
     a: "",
     b: "",
-    numberOfSamples: ""
+    numberOfSamples: "",
+    numberOfIntervals: ""
   })
 
   exponentialDistributionForm = this.formBuilder.group({
     lambda: "",
-    numberOfSamples: ""
+    numberOfSamples: "",
+    numberOfIntervals: ""
   })
   
   poissonDistributionForm = this.formBuilder.group({
     lambda: "",
-    numberOfSamples: ""
+    numberOfSamples: "",
+    numberOfIntervals: ""
   })
 
   normalDistributionForm = this.formBuilder.group({
     mu: "",
     sigma: "",
-    numberOfSamples: ""
+    numberOfSamples: "",
+    numberOfIntervals: ""
   })
   
   onSubmit(): void {
@@ -56,7 +60,8 @@ export class TercertpComponent implements OnInit {
         'normal-distribution' + this.url + 
         this.normalDistributionForm.value['numberOfSamples'] + 
         '&mu=' + this.normalDistributionForm.value['mu'] +
-        '&sigma=' + this.normalDistributionForm.value['sigma'];
+        '&sigma=' + this.normalDistributionForm.value['sigma'] +
+        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
         
         break;
       
@@ -66,7 +71,8 @@ export class TercertpComponent implements OnInit {
         this.url = 
         'exponential-distribution' + this.url + 
         this.exponentialDistributionForm.value['numberOfSamples'] +
-        '&lambda=' + this.exponentialDistributionForm.value['lambda'];
+        '&lambda=' + this.exponentialDistributionForm.value['lambda'] +
+        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
 
         break;
 
@@ -76,7 +82,8 @@ export class TercertpComponent implements OnInit {
         this.url = 
         'poisson-distribution' + this.url +
         this.poissonDistributionForm.value['numberOfSamples'] +
-        '&lambda=' + this.poissonDistributionForm.value['lambda'];
+        '&lambda=' + this.poissonDistributionForm.value['lambda'] +
+        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
 
         break;
       
@@ -87,7 +94,8 @@ export class TercertpComponent implements OnInit {
         'uniform-distribution' + this.url +
         this.uniformDistributionForm.value['numberOfSamples'] +
         '&a=' + this.uniformDistributionForm.value['a'] +
-        '&b=' + this.uniformDistributionForm.value['b'];
+        '&b=' + this.uniformDistributionForm.value['b'] +
+        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
         break;
     }
 
