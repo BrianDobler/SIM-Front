@@ -1,226 +1,220 @@
-<div class="flex-container">
-  <div class="container">
+<div class="container-fluid">
+  <div class="panel-heading"><br>
+    <h3>
+      <p class="text-center"> Tema: Variables Aleatorias Continuas</p>
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    <br>
     <div class="container-fluid">
-      <div class="panel panel-default">
-
-        <div class="panel-heading"><br>
-          <h3>
-            <p class="text-center" > Tema: Variables Aleatorias Continuas</p>
-          </h3>
+      <div class="row mt-5">
+        <div class="col-4">
+          <select class="form-select" #nomselec (change)='seleccion(nomselec.value)'
+            aria-label="Default select example">
+            <option selected hidden>Tipos de Distribuciones</option>
+            <option value="uniform-distribution">Uniforme</option>
+            <option value="exponential-distribution">Exponencial</option>
+            <option value="poisson-distribution">Poisson</option>
+            <option value="normal-distribution">Normal</option>
+          </select>
         </div>
-        <div class="panel-body">
+      </div>
 
-          <br>
-          <div class="container-fluid">
-            <div class="row mt-5">
-              <div class="col-4">
-                <select class="form-select" #nomselec (change)='seleccion(nomselec.value)'
-                  aria-label="Default select example">
-                  <option selected hidden>Tipos de Distribuciones</option>
-                  <option value="uniform-distribution">Uniforme</option>
-                  <option value="exponential-distribution">Exponencial</option>
-                  <option value="poisson-distribution">Poisson</option>
-                  <option value="normal-distribution">Normal</option>
-                </select>
+      <form [formGroup]="uniformDistributionForm" (ngSubmit)="onSubmit()">
+        <div class="flex-container mt-5" *ngIf="tiposDistribuciones ==='uniform-distribution'">
+          <div class="row">
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Parámetro A</span>
+                <input formControlName="a" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Parámetro B</span>
+                <input formControlName="b" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Cantidad muestras</span>
+                <input formControlName="numberOfSamples" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
+                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center mb-3"><br>
+              <button class="btn btn-success" type="submit">Generar distribución</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+      <form [formGroup]="exponentialDistributionForm" (ngSubmit)="onSubmit()">
+        <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='exponential-distribution'">
+          <div class="row mt-5">
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Parámetro λ-Lambda- </span>
+                <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
+                <input formControlName="numberOfSamples" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
+                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col text-center mb-3"><br>
+              <button class="btn btn-success" type="submit">Generar distribución</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form [formGroup]="poissonDistributionForm" (ngSubmit)="onSubmit()">
+        <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='poisson-distribution'">
+          <div class="row mt-5">
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Parámetro λ -Lambda- </span>
+                <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
 
-
-            <form [formGroup]="uniformDistributionForm" (ngSubmit)="onSubmit()">
-              <div class="flex-container mt-5" *ngIf="tiposDistribuciones ==='uniform-distribution'">
-                <div class="row">
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Parámetro A</span>
-                      <input formControlName="a" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Parámetro B</span>
-                      <input formControlName="b" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Cantidad muestras</span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col text-center mb-3"><br>
-                    <button class="btn btn-success" type="submit">Generar distribución</button>
-                  </div>
-                </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
+                <input formControlName="numberOfSamples" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
-
-            </form>
-
-
-            <form [formGroup]="exponentialDistributionForm" (ngSubmit)="onSubmit()">
-              <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='exponential-distribution'">
-                <div class="row mt-5">
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Parámetro λ-Lambda- </span>
-                      <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col text-center mb-3"><br>
-                    <button class="btn btn-success" type="submit">Generar distribución</button>
-                  </div>
-                </div>
+            </div>
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
+                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
+            </div>
+          </div>
 
-            </form>
-
-
-
-
-            <form [formGroup]="poissonDistributionForm" (ngSubmit)="onSubmit()">
-              <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='poisson-distribution'">
-                <div class="row mt-5">
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Parámetro λ -Lambda- </span>
-                      <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col text-center mb-3"><br>
-                    <button class="btn btn-success" type="submit">Generar distribución</button>
-                  </div>
-                </div>
-              </div>
-
-            </form>
-
-
-
-            <form [formGroup]="normalDistributionForm" (ngSubmit)="onSubmit()">
-              <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='normal-distribution'">
-                <div class="row mt-5">
-                  <div class="col">
-                    <div class="input-group mb-4">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Parámetro μ -Mu-</span>
-                      <input formControlName="mu" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="input-group mb-4">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Parámetro ς -Sigma-</span>
-                      <input formControlName="sigma" type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="input-group mb-4">
-                      <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar</span>
-                      <input formControlName="numberOfSamples" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="input-group mb-3">
-                      <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                      <input formControlName="numberOfIntervals" type="text" class="form-control"
-                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mt-3">
-                  <div class="col text-center mb-3"><br>
-                    <button class="btn btn-success" type="submit">Generar distribución</button>
-                  </div>
-                </div>
-              </div>
-            </form>
-
+          <div class="row mt-3">
+            <div class="col text-center mb-3"><br>
+              <button class="btn btn-success" type="submit">Generar distribución</button>
+            </div>
           </div>
         </div>
-        <br>
+      </form>
 
-        <div class="header">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="row">
-                  <p class="text-center">Indice</p>
-                </th>
-                <th scope="row">
-                  <p class="text-center">Valor Generado</p>
-                </th>
-              </tr>
-            </thead>
-          </table>
+      <form [formGroup]="normalDistributionForm" (ngSubmit)="onSubmit()">
+        <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='normal-distribution'">
+          <div class="row mt-5">
+            <div class="col">
+              <div class="input-group mb-4">
+                <span class="input-group-text" id="inputGroup-sizing-default">Parámetro μ -Mu-</span>
+                <input formControlName="mu" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="input-group mb-4">
+                <span class="input-group-text" id="inputGroup-sizing-default">Parámetro ς -Sigma-</span>
+                <input formControlName="sigma" type="text" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="input-group mb-4">
+                <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar</span>
+                <input formControlName="numberOfSamples" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
+                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col text-center mb-3"><br>
+              <button class="btn btn-success" type="submit">Generar distribución</button>
+            </div>
+          </div>
         </div>
-        <div class="body">
-          <table class="table">
-            <tr *ngFor="let i of requestData; index as idx">
-              <th scope="row">
-                <p class="text-center">{{idx + 1}}</p>
-              </th>
-              <th scope="row">
-                <p class="text-center">{{i}}</p>
-              </th>
-            </tr>
-          </table>
-        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+
+  <div class="header">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="row">
+            <p class="text-center">Indice</p>
+          </th>
+          <th scope="row">
+            <p class="text-center">Valor Generado</p>
+          </th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
+  <div class="body">
+    <table class="table">
+      <tr *ngFor="let i of generatedSeries; index as idx">
+        <th scope="row">
+          <p class="text-center">{{idx + 1}}</p>
+        </th>
+        <th scope="row">
+          <p class="text-center">{{i}}</p>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container">
+    <br>
+    <div class="row text-center mb-3">
+      <div class="col">
+        <button type="button" class="btn btn-outline-success" (click)="generateGraphic()">Graficar</button>
+      </div>
+    </div>
+    <div class="row text-center mb-3">
+      <div class="col">
+          <canvas id="myChart"></canvas>
       </div>
     </div>
   </div>

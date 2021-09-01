@@ -3,18 +3,6 @@
     overflow: auto;
 }
 
-.flex-container{
-    background-color:#414747;
-}
-
-.panel-heading{
-    color:white;
-}
-
-.table{
-    color:white;
-}
-
-.input-group-text{
-    background-color:#00c7bd;
+#divChart {
+    display: block;
 }
