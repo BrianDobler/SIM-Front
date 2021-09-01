@@ -5,6 +5,12 @@
 
 .flex-container{
     background-color:#414747;
-    height: 100vh;
 }
 
+.panel-heading{
+    color:white;
+}
+
+.table{
+    color:white;
+}
