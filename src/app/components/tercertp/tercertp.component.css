@@ -2,3 +2,9 @@
     height: 400px;
     overflow: auto;
 }
+
+.flex-container{
+    background-color:#414747;
+    height: 100vh;
+}
+
