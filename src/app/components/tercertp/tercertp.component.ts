@@ -72,7 +72,7 @@ export class TercertpComponent implements OnInit {
         'exponential-distribution' + this.url + 
         this.exponentialDistributionForm.value['numberOfSamples'] +
         '&lambda=' + this.exponentialDistributionForm.value['lambda'] +
-        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
+        '&numberOfIntervals=' + this.exponentialDistributionForm.value['numberOfIntervals'];
 
         break;
 
@@ -83,8 +83,8 @@ export class TercertpComponent implements OnInit {
         'poisson-distribution' + this.url +
         this.poissonDistributionForm.value['numberOfSamples'] +
         '&lambda=' + this.poissonDistributionForm.value['lambda'] +
-        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
-
+        '&numberOfIntervals=' + this.poissonDistributionForm.value['numberOfIntervals'];
+        
         break;
       
       case 'uniform-distribution':
@@ -95,7 +95,7 @@ export class TercertpComponent implements OnInit {
         this.uniformDistributionForm.value['numberOfSamples'] +
         '&a=' + this.uniformDistributionForm.value['a'] +
         '&b=' + this.uniformDistributionForm.value['b'] +
-        '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
+        '&numberOfIntervals=' + this.uniformDistributionForm.value['numberOfIntervals'];
         break;
     }
 
