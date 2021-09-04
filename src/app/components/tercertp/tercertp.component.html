@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="panel-heading"><br>
     <h3>
       <p class="text-center"> Tema: Variables Aleatorias Continuas</p>
@@ -22,7 +22,7 @@
       </div>
 
       <form [formGroup]="uniformDistributionForm" (ngSubmit)="onSubmit()">
-        <div class="flex-container mt-5" *ngIf="tiposDistribuciones ==='uniform-distribution'">
+        <div class="container mt-5" *ngIf="tiposDistribuciones ==='uniform-distribution'">
           <div class="row">
             <div class="col">
               <div class="input-group mb-3">
@@ -63,7 +63,7 @@
 
 
       <form [formGroup]="exponentialDistributionForm" (ngSubmit)="onSubmit()">
-        <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='exponential-distribution'">
+        <div class="container mt-4" *ngIf="tiposDistribuciones ==='exponential-distribution'">
           <div class="row mt-5">
             <div class="col">
               <div class="input-group mb-3">
@@ -96,7 +96,7 @@
       </form>
 
       <form [formGroup]="poissonDistributionForm" (ngSubmit)="onSubmit()">
-        <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='poisson-distribution'">
+        <div class="container mt-4" *ngIf="tiposDistribuciones ==='poisson-distribution'">
           <div class="row mt-5">
             <div class="col">
               <div class="input-group mb-3">
@@ -124,7 +124,7 @@
       </form>
 
       <form [formGroup]="normalDistributionForm" (ngSubmit)="onSubmit()">
-        <div class="flex-container mt-4" *ngIf="tiposDistribuciones ==='normal-distribution'">
+        <div class="container mt-4" *ngIf="tiposDistribuciones ==='normal-distribution'">
           <div class="row mt-5">
             <div class="col">
               <div class="input-group mb-4">
@@ -169,6 +169,28 @@
     </div>
   </div>
   <br>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col md-auto">
+        <div class="table table-borderless">
+          <thead>
+            <tr>
+              <th>Rechazada</th>
+              <th>Valor de Chi teórico</th>
+              <th>Valor de Chi calculado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>{{ rejected }}</th>
+              <th>{{ criticalChiValue }}</th>
+              <th>{{ calculatedChiValue }}</th>
+            </tr>
+          </tbody>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container border border-4">
     <div class="header">
       <table class="table">
@@ -184,8 +206,6 @@
         </thead>
       </table>
     </div>
-
-
     <div class="body">
       <table class="table">
         <tr *ngFor="let i of generatedSeries; index as idx">
@@ -199,7 +219,6 @@
       </table>
     </div>
   </div>
-
   <div class="container">
     <br>
     <div class="row text-center mb-3">
