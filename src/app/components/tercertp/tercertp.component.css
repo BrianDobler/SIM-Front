@@ -6,3 +6,11 @@
 #divChart {
     display: block;
 }
+
+.panel-body {
+    height: 300px;
+}
+
+.table-container {
+    height: 200px;
+}

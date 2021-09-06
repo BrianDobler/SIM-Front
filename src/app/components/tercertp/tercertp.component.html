@@ -169,26 +169,39 @@
     </div>
   </div>
   <br>
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col md-auto">
+  <div class="container-fluid table-container">
+    <div class="row justify-content-center">
+      <div class="col-3"></div>
+      <div class="col-9">
         <div class="table table-borderless">
           <thead>
             <tr>
-              <th>Rechazada</th>
-              <th>Valor de Chi teórico</th>
-              <th>Valor de Chi calculado</th>
+              <th>
+                <p class="text-center">Rechazada</p>
+              </th>
+              <th>
+                <p class="text-center">Valor de Chi teórico</p>
+              </th>
+              <th>
+                <p class="text-center">Valor de Chi calculado</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th>{{ rejected }}</th>
-              <th>{{ criticalChiValue }}</th>
-              <th>{{ calculatedChiValue }}</th>
+              <th>
+                <p class="text-center">{{ rejected ? 'Si' : 'No' }}</p>
+              </th>
+              <th>
+                <p class="text-center">{{ criticalChiValue }}</p>
+              </th>
+              <th>
+                <p class="text-center">{{ calculatedChiValue }}</p>
+              </th>
             </tr>
           </tbody>
         </div>
       </div>
+      <div class="col-3"></div>
     </div>
   </div>
   <div class="container border border-4">
