@@ -13,23 +13,23 @@ import { SegundotpComponent } from './components/segundotp/segundotp.component';
 import { TercertpComponent } from './components/tercertp/tercertp.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InicioComponent,
-    NavbarComponent,
-    PrimertpComponent,
-    SegundotpComponent,
-    TercertpComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    ChartsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        InicioComponent,
+        NavbarComponent,
+        PrimertpComponent,
+        SegundotpComponent,
+        TercertpComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        ChartsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
