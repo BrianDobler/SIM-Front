@@ -11,7 +11,6 @@ import { environment } from 'src/environments/environment';
 })
 
 export class TercertpComponent implements OnInit {
-
     tiposDistribuciones = '';
     baseUrl = environment.url;
     url = '?numberOfSamples=';
