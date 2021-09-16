@@ -20,7 +20,8 @@
           </select>
         </div>
       </div>
-
+      
+      <!-- Distribución uniforme -->
       <form [formGroup]="uniformDistributionForm" (ngSubmit)="onSubmit()">
         <div class="container mt-5" *ngIf="tiposDistribuciones ==='uniform-distribution'">
           <div class="row">
@@ -122,7 +123,7 @@
           </div>
         </div>
       </form>
-
+      
       <form [formGroup]="normalDistributionForm" (ngSubmit)="onSubmit()">
         <div class="container mt-4" *ngIf="tiposDistribuciones ==='normal-distribution'">
           <div class="row mt-5">
