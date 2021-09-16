@@ -61,15 +61,14 @@
         </div>
       </form>
 
-
+      <!-- Distribución exponencial. -->
       <form [formGroup]="exponentialDistributionForm" (ngSubmit)="onSubmit()">
-        <div class="container mt-4" *ngIf="tiposDistribuciones ==='exponential-distribution'">
+        <div class="container mt-4" *ngIf="tiposDistribuciones === 'exponential-distribution'">
           <div class="row mt-5">
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Parámetro λ-Lambda- </span>
-                <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default">
+                <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" type="number" step="0.01" min="0" oninput="validity.valid || (value='');">
               </div>
             </div>
             <div class="col">
@@ -95,14 +94,15 @@
         </div>
       </form>
 
+      <!-- Distribución de Poisson -->
       <form [formGroup]="poissonDistributionForm" (ngSubmit)="onSubmit()">
-        <div class="container mt-4" *ngIf="tiposDistribuciones ==='poisson-distribution'">
+        <div class="container mt-4" *ngIf="tiposDistribuciones === 'poisson-distribution'">
           <div class="row mt-5">
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Parámetro λ -Lambda- </span>
-                <input formControlName="lambda" type="text" class="form-control" aria-label="Sizing example input"
-                  aria-describedby="inputGroup-sizing-default">
+                <input formControlName="lambda" class="form-control" aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" type="number" min="0" oninput="validity.valid || (value='');">
               </div>
             </div>
 
