@@ -42,14 +42,14 @@
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Cantidad muestras</span>
-                <input formControlName="numberOfSamples" type="text" class="form-control"
+                <input formControlName="numberOfSamples" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                <input formControlName="numberOfIntervals" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
@@ -75,14 +75,14 @@
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
-                <input formControlName="numberOfSamples" type="text" class="form-control"
+                <input formControlName="numberOfSamples" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                <input formControlName="numberOfIntervals" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar </span>
-                <input formControlName="numberOfSamples" type="text" class="form-control"
+                <input formControlName="numberOfSamples" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
@@ -138,7 +138,7 @@
             <div class="col">
               <div class="input-group mb-4">
                 <span class="input-group-text" id="inputGroup-sizing-default">Parámetro ς -Sigma-</span>
-                <input formControlName="sigma" type="text" class="form-control" aria-label="Sizing example input"
+                <input formControlName="sigma" type="number" step="0.01" min="0" oninput="validity.valid || (value='');" class="form-control" aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
@@ -146,7 +146,7 @@
             <div class="col">
               <div class="input-group mb-4">
                 <span class="input-group-text" id="inputGroup-sizing-default">Muestras a generar</span>
-                <input formControlName="numberOfSamples" type="text" class="form-control"
+                <input formControlName="numberOfSamples" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
@@ -154,7 +154,7 @@
             <div class="col">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">N° de Intervalos</span>
-                <input formControlName="numberOfIntervals" type="text" class="form-control"
+                <input formControlName="numberOfIntervals" type="number" min="0" oninput="validity.valid || (value='');" class="form-control"
                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
               </div>
             </div>
