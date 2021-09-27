@@ -6,4 +6,15 @@
             </h3>
         </div>
     </div>
+
+    <div class= "row" *ngFor="let i of actividades">
+        <div class="col">
+            <h1>
+                {{i.Nombre}}
+                {{i.Distribucion}}
+                {{i.Presedencias}}
+                {{i.Variable}}
+            </h1>
+        </div>
+    </div>
 </div>
