@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PrimertpComponent } from './components/primertp/primertp.component';
 import { SegundotpComponent } from './components/segundotp/segundotp.component';
 import { TercertpComponent } from './components/tercertp/tercertp.component';
+import { CuartotpComponent } from './components/cuartotp/cuartotp.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { TercertpComponent } from './components/tercertp/tercertp.component';
         NavbarComponent,
         PrimertpComponent,
         SegundotpComponent,
-        TercertpComponent
+        TercertpComponent,
+        CuartotpComponent
     ],
     imports: [
         BrowserModule,

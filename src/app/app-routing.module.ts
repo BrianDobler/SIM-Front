@@ -4,6 +4,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { PrimertpComponent } from './components/primertp/primertp.component';
 import { SegundotpComponent } from './components/segundotp/segundotp.component';
 import { TercertpComponent } from './components/tercertp/tercertp.component';
+import { CuartotpComponent } from './components/cuartotp/cuartotp.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'components/primertp', component: PrimertpComponent },
     { path: 'components/segundotp', component: SegundotpComponent },
     { path: 'components/tercertp', component: TercertpComponent },
+    { path: 'components/cuartotp', component: CuartotpComponent },
 ];
 
 @NgModule({
