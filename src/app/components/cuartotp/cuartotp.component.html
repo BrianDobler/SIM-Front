@@ -7,13 +7,49 @@
         </div>
     </div>
 
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Actividad</label>
+            <input type="text" class="form-control" id="actividad" aria-describedby="emailHelp" placeholder="Actividad">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Presedencia</label>
+            <input type="text" class="form-control" id="presedencia" placeholder="Presedencia">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Variable</label>
+            <input type="text" class="form-control" id="variable" placeholder="Variable">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Distribucion</label>
+            <input type="text" class="form-control" id="distribucion" placeholder="Distribucion">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Minimo</label>
+            <input type="text" class="form-control" id="minimo" placeholder="Minimo">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Maximo</label>
+            <input type="text" class="form-control" id="maximo" placeholder="Maximo">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="numerosaleatorios">
+            <label class="form-check-label" for="exampleCheck1">Numeros Aleatorios</label>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="congruencilamixto">
+            <label class="form-check-label" for="exampleCheck1">Congruencial Mixto</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Generar</button>
+        </form>
+
     <div class= "row" *ngFor="let i of actividades">
         <div class="col">
             <h1>
                 {{i.Nombre}}
-                {{i.Distribucion}}
                 {{i.Presedencias}}
                 {{i.Variable}}
+                {{i.Distribucion}}
             </h1>
         </div>
     </div>
