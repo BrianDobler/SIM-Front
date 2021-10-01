@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    <div class="row mb-3">
         <div class="panel-heading"><br>
             <h3>
                 <p class="text-center"> Tema: Simulacion Montecarlo</p>
@@ -7,14 +7,49 @@
         </div>
     </div>
 
-    <div class= "row" *ngFor="let i of actividades">
+    <!-- Renderiza un botón por cada tarea. -->
+    <div class="row mb-3" *ngFor="let task of tasks">
         <div class="col">
-            <h1>
-                {{i.Nombre}}
-                {{i.Distribucion}}
-                {{i.Presedencias}}
-                {{i.Variable}}
-            </h1>
+            <button type="button" class="btn btn-secondary">
+                {{ task.name }}
+            </button>
+        </div>
+
+        <div class="col">
+            <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)' aria-label="Default select example">
+              <option selected hidden>Distribución</option>
+              <option value="uniform">Uniforme</option>
+              <option value="exponential">Exponencial</option>
+              <option value="normal">Normal</option>
+            </select>
+        </div> 
+
+        <!-- Depends on the distribution selected for each task -->
+        <!-- Made to preserve style -->
+        <div class="col col-lg-8" *ngIf="task.distributionType === ''"></div> 
+
+        <div class="col col-lg-8" *ngIf="task.distributionType === 'uniform'">
+            <div class="container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="A">
+                    <input type="text" class="form-control" placeholder="B">
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-8" *ngIf="task.distributionType === 'normal'">
+            <div class="container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Mu">
+                    <input type="text" class="form-control" placeholder="Sigma">
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-8" *ngIf="task.distributionType === 'exponential'">
+            <div class="container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Lambda">
+                </div>
+            </div>
         </div>
     </div>
 </div>
