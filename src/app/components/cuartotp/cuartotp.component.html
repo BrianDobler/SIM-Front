@@ -38,6 +38,7 @@
         <!-- Made to preserve style -->
         <div class="col col-lg-8" *ngIf="task.distributionType === ''"></div> 
 
+        <!-- Uniform distribution -->
         <div class="col col-lg-8" *ngIf="task.distributionType === 'uniform'">
             <div class="container">
                 <div class="input-group mb-3">
@@ -46,6 +47,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Normal distribution -->
         <div class="col col-lg-8" *ngIf="task.distributionType === 'normal'">
             <div class="container">
                 <div class="input-group mb-3">
@@ -54,6 +57,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Exponential distribution -->
         <div class="col col-lg-8" *ngIf="task.distributionType === 'exponential'">
             <div class="container">
                 <div class="input-group mb-3">
