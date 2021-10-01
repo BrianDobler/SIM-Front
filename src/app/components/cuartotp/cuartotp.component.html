@@ -19,12 +19,14 @@
 
     <!-- Renderiza un botón por cada tarea. -->
     <div class="row justify-content-start m-3" *ngFor="let task of tasks">
+        <!-- Activity name -->
         <div class="col col-2">
             <button type="button" class="btn btn-secondary">
                 {{ task.name }}
             </button>
         </div>
 
+        <!-- Distribution selector -->
         <div class="col col-4">
             <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)' aria-label="Default select example">
               <option selected hidden>Default: {{ task.distributionType }}</option>
