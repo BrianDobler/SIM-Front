@@ -1,35 +1,26 @@
 import { Component, OnInit } from '@angular/core';
+import { Activity } from './helpers/Activity';
 
 @Component({
-  selector: 'app-cuartotp',
-  templateUrl: './cuartotp.component.html',
-  styleUrls: ['./cuartotp.component.css']
+    selector: 'app-cuartotp',
+    templateUrl: './cuartotp.component.html',
+    styleUrls: ['./cuartotp.component.css'],
 })
 export class CuartotpComponent implements OnInit {
 
-  constructor() { }
+    constructor() {
+            
+    };
 
-  ngOnInit(): void {
-  }
-  actividades=[{
-  Nombre: "Actividad 1",
-  Distribucion: "Uniforme",
-  Presedencias: "Sin Presedencias", 
-  Variable: "T1"},{
-  Nombre: "Activdad 2",
-  Distribucion: "Uniforme",
-  Presedencias: "Sin Presedencias", 
-  Variable: "T1"},{
-  Nombre: "Actividad 3",
-  Distribucion: "Exponencial", 
-  Presedencias: "Sin Presedencias",
-  Variable: "T1"},{
-  Nombre: "Activdad 4",
-  Distribucion: "Uniforme", 
-  Presedencias: "Solo Actividad 1",
-  Variable: "T4"},{
-  Nombre: "Actividad 5",
-  Distribucion: "Exponencial",
-  Presedencias: "Solo Actividad 2 y 4",
-  Variable: "T5"},
-  ]}
+    ngOnInit(): void {
+        ;
+    };
+
+    A1 = new Activity('Actividad 1');
+    A2 = new Activity('Actividad 2');
+    A3 = new Activity('Actividad 3');
+    A4 = new Activity('Actividad 4');
+    A5 = new Activity('Actividad 5');
+
+    tasks = [this.A1, this.A2, this.A3, this.A4, this.A5];
+}
