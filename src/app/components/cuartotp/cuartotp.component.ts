@@ -16,11 +16,11 @@ export class CuartotpComponent implements OnInit {
         ;
     };
 
-    A1 = new Activity('Actividad 1');
-    A2 = new Activity('Actividad 2');
-    A3 = new Activity('Actividad 3');
-    A4 = new Activity('Actividad 4');
-    A5 = new Activity('Actividad 5');
+    A1 = new Activity('Actividad 1', 'uniform');
+    A2 = new Activity('Actividad 2', 'uniform');
+    A3 = new Activity('Actividad 3', 'exponential');
+    A4 = new Activity('Actividad 4', 'uniform');
+    A5 = new Activity('Actividad 5', 'exponential');
 
     tasks = [this.A1, this.A2, this.A3, this.A4, this.A5];
 }
