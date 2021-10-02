@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Activity } from './helpers/Activity';
 
 @Component({
@@ -6,10 +7,10 @@ import { Activity } from './helpers/Activity';
     templateUrl: './cuartotp.component.html',
     styleUrls: ['./cuartotp.component.css'],
 })
+
 export class CuartotpComponent implements OnInit {
 
     constructor() {
-            
     };
 
     ngOnInit(): void {
@@ -23,4 +24,16 @@ export class CuartotpComponent implements OnInit {
     A5 = new Activity('Actividad 5', 'exponential');
 
     tasks = [this.A1, this.A2, this.A3, this.A4, this.A5];
+
+    generatorType: string = 'native-generator';
+    setGenerator = (name: string) => {
+        this.generatorType = name;
+    };
+
+    generatorForm: FormGroup = new FormGroup({
+        seed: new FormControl('' ,Validators.required),
+        mod: new FormControl('' ,Validators.required),
+        a: new FormControl('' ,Validators.required),
+        c: new FormControl('' ,Validators.required)
+    });
 }
