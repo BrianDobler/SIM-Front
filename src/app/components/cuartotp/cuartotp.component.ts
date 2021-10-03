@@ -17,23 +17,26 @@ export class CuartotpComponent implements OnInit {
         ;
     };
 
-    A1 = new Activity('Actividad 1', 'uniform');
-    A2 = new Activity('Actividad 2', 'uniform');
-    A3 = new Activity('Actividad 3', 'exponential');
-    A4 = new Activity('Actividad 4', 'uniform');
-    A5 = new Activity('Actividad 5', 'exponential');
+    // The activities helps for the modularity of the HTML code.
+    // Classes defined under './helpers/Activity.ts'
+    A1 = new Activity('Actividad 1', 'uniform', 20, 30);
+    A2 = new Activity('Actividad 2', 'uniform', 30, 50);
+    A3 = new Activity('Actividad 3', 'exponential', 30);
+    A4 = new Activity('Actividad 4', 'uniform', 10, 20);
+    A5 = new Activity('Actividad 5', 'exponential', 5);
 
     tasks = [this.A1, this.A2, this.A3, this.A4, this.A5];
 
+    // The default random number generator is the native languaje generator.
     generatorType: string = 'native-generator';
     setGenerator = (name: string) => {
         this.generatorType = name;
     };
 
     generatorForm: FormGroup = new FormGroup({
-        seed: new FormControl('' ,Validators.required),
-        mod: new FormControl('' ,Validators.required),
-        a: new FormControl('' ,Validators.required),
-        c: new FormControl('' ,Validators.required)
+        seed: new FormControl('' ,[Validators.required, Validators.min(0), Validators.max(1000000)]),
+        mod: new FormControl('' ,[Validators.required, Validators.min(0)]),
+        a: new FormControl('' ,[Validators.required, Validators.min(0)]),
+        c: new FormControl('' ,[Validators.required, Validators.min(0)])
     });
 }

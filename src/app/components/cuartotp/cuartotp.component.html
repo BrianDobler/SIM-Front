@@ -15,42 +15,54 @@
             </button>
         </div>
         <div class="col col-2">
-            <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+            <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined"
+                id="success-outlined" autocomplete="off" checked>
             <label class="btn btn-outline-success" for="success-outlined">Generador Nativo</label>
         </div>
         <div class="col col-6">
-            <input (click)="setGenerator('congruential-generator')" type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+            <input (click)="setGenerator('congruential-generator')" type="radio" class="btn-check"
+                name="options-outlined" id="danger-outlined" autocomplete="off">
             <label class="btn btn-outline-danger" for="danger-outlined">Generador Congruencial Lineal</label>
         </div>
     </div>
 
     <!-- Render the fields to set the linear congruential generator -->
-    <form [formGroup]="generatorForm" class="row m-4" *ngIf="generatorType === 'congruential-generator'">
-        <div class="col">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Semilla</span>
-                <input type="text" class="form-control" placeholder="Semilla" formControlName="seed">
+    <form [formGroup]="generatorForm" class="container m-4" *ngIf="generatorType === 'congruential-generator'">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Semilla</span>
+                    <input type="number" class="form-control" placeholder="Semilla" formControlName="seed">
+                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['seed'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['seed'].invalid && generatorForm.controls['seed'].touched">Campo inválido</div>
+                </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Módulo</span>
-                <input type="text" class="form-control" placeholder="Módulo" formControlName="mod">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Módulo</span>
+                    <input type="number" class="form-control" placeholder="Módulo" formControlName="mod">
+                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['mod'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['mod'].invalid && generatorForm.controls['mod'].touched">Campo inválido</div>
+                </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">A</span>
-                <input type="text" class="form-control" placeholder="A" formControlName="a">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">A</span>
+                    <input type="number" class="form-control" placeholder="A" formControlName="a">
+                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['a'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['a'].invalid && generatorForm.controls['a'].touched">Campo inválido</div>
+                </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">C</span>
-                <input type="text" class="form-control" placeholder="C" formControlName="c">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">C</span>
+                    <input type="number" class="form-control" placeholder="C" formControlName="c">
+                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['c'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['c'].invalid && generatorForm.controls['c'].touched">Campo inválido</div>
+                </div>
             </div>
         </div>
     </form>
@@ -82,10 +94,10 @@
                 <div class="container">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">A</span>
-                        <input type="text" class="form-control" placeholder="A" formControlName="A">
+                        <input type="number" class="form-control" placeholder="A" formControlName="A">
 
                         <span class="input-group-text" id="basic-addon1">B</span>
-                        <input type="text" class="form-control" placeholder="B" formControlName="B">
+                        <input type="number" class="form-control" placeholder="B" formControlName="B">
                     </div>
                 </div>
             </form>
@@ -97,10 +109,10 @@
                 <div class="container">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Mu</span>
-                        <input type="text" class="form-control" placeholder="Mu" formControlName="mu">
+                        <input type="number" class="form-control" placeholder="Mu" formControlName="mu">
 
                         <span class="input-group-text" id="basic-addon1">Sigma</span>
-                        <input type="text" class="form-control" placeholder="Sigma" formControlName="sigma">
+                        <input type="number" class="form-control" placeholder="Sigma" formControlName="sigma">
                     </div>
                 </div>
             </form>
@@ -112,7 +124,7 @@
                 <div class="container">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Lambda</span>
-                        <input type="text" class="form-control" placeholder="Lambda" formControlName="lambda">
+                        <input type="number" class="form-control" placeholder="Lambda" formControlName="lambda">
                     </div>
                 </div>
             </form>
@@ -124,12 +136,12 @@
         <div class="col">
             <div class="input-group">
                 <span class="input-group-text" id="basic-addon1">Número de simulaciones</span>
-                <input type="text" class="form-control">
+                <input type="number" class="form-control">
             </div>
         </div>
 
         <div class="col">
-            <button type="button" class="btn btn-outline-dark">Simular</button>
+            <button type="submit" [disabled]="!generatorForm.valid" class="btn btn-outline-dark">Simular</button>
         </div>
     </div>
 
