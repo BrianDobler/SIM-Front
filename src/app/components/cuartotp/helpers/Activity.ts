@@ -11,12 +11,12 @@ export class Activity {
     constructor(name: string, distribution: string = '', valueA: number, valueB?: number) {
         this.name = name;
         this.distributionType = distribution;
-        this.setDistributionForm();
         this.valueA = valueA;
 
         if (valueB !== undefined) {
             this.valueB = valueB;
         }
+        this.setDistributionForm();
     };
 
     selectDistribution = (value: string): void => {
