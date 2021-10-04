@@ -8,11 +8,11 @@ import { CuartotpComponent } from './components/cuartotp/cuartotp.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-    { path: 'components/inicio', component: InicioComponent },
-    { path: 'components/primertp', component: PrimertpComponent },
-    { path: 'components/segundotp', component: SegundotpComponent },
-    { path: 'components/tercertp', component: TercertpComponent },
-    { path: 'components/cuartotp', component: CuartotpComponent },
+    { path: 'inicio', component: InicioComponent },
+    { path: 'primertp', component: PrimertpComponent },
+    { path: 'segundotp', component: SegundotpComponent },
+    { path: 'tercertp', component: TercertpComponent },
+    { path: 'cuartotp', component: CuartotpComponent },
 ];
 
 @NgModule({
