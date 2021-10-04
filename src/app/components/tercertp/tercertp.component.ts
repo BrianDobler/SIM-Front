@@ -20,12 +20,7 @@ export class TercertpComponent implements OnInit {
         private formBuilder: FormBuilder
     ) { }
 
-    /* eslint-disable
-    */
-    ngOnInit(): void {
-    }
-    /* eslint-enable
-    */
+    ngOnInit(): void { ; }
 
     generateGraphic(): void {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
