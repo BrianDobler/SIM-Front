@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ComponentService } from './cuartotp.service';
 import { Activity } from './helpers/Activity';
@@ -42,8 +42,21 @@ export class CuartotpComponent implements OnInit {
     });
 
     simulationForm: FormGroup = new FormGroup({
-        numberOfSimulations: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(1000000)])
+        numberOfSimulations: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(1000000)])
     });
+
+    checkIfValid = (tagId: string, form: AbstractControl) => {
+        var element = document.getElementById(tagId);
+        console.log(element);
+        if (form.valid) {
+            element!.classList.remove('is-invalid');
+            element!.classList.add('is-valid');
+        } else {
+            console.log('no validada');
+            element!.classList.remove('is-valid');
+            element!.classList.add('is-invalid');
+        }
+    }
 
     submitAll = () => {
         console.log(this.simulationForm.value);
