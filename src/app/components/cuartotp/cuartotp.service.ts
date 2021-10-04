@@ -4,13 +4,11 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MontecarloBody } from './helpers/MontecarloBody';
 
-@Injectable({providedIn:'root'})
+@Injectable({ providedIn:'root' })
 export class ComponentService {
     baseUrl: string = environment.url;
 
-    constructor (private http: HttpClient) {
-
-    }
+    constructor (private http: HttpClient) {}
 
     setSimulation = (requestBody: MontecarloBody): Observable<any> => {
         const headers = { 'content-type': 'application/json' };

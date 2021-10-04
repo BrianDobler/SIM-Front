@@ -33,8 +33,8 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Semilla</span>
                     <input type="number" class="form-control" placeholder="Semilla" formControlName="seed">
-                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['seed'].valid">Looks good!</div>
-                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['seed'].invalid && generatorForm.controls['seed'].touched">Campo inválido</div>
+                    <div class="valid-feedback d-block" *ngIf="generatorForm.controls['seed'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block" *ngIf="generatorForm.controls['seed'].invalid && generatorForm.controls['seed'].touched">Campo inválido</div>
                 </div>
             </div>
 
@@ -42,8 +42,8 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Módulo</span>
                     <input type="number" class="form-control" placeholder="Módulo" formControlName="mod">
-                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['mod'].valid">Looks good!</div>
-                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['mod'].invalid && generatorForm.controls['mod'].touched">Campo inválido</div>
+                    <div class="valid-feedback d-block" *ngIf="generatorForm.controls['mod'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block" *ngIf="generatorForm.controls['mod'].invalid && generatorForm.controls['mod'].touched">Campo inválido</div>
                 </div>
             </div>
 
@@ -51,8 +51,8 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">A</span>
                     <input type="number" class="form-control" placeholder="A" formControlName="a">
-                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['a'].valid">Looks good!</div>
-                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['a'].invalid && generatorForm.controls['a'].touched">Campo inválido</div>
+                    <div class="valid-feedback d-block" *ngIf="generatorForm.controls['a'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block" *ngIf="generatorForm.controls['a'].invalid && generatorForm.controls['a'].touched">Campo inválido</div>
                 </div>
             </div>
 
@@ -60,8 +60,8 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">C</span>
                     <input type="number" class="form-control" placeholder="C" formControlName="c">
-                    <div class="valid-feedback d-block"*ngIf="generatorForm.controls['c'].valid">Looks good!</div>
-                    <div class="invalid-feedback d-block"*ngIf="generatorForm.controls['c'].invalid && generatorForm.controls['c'].touched">Campo inválido</div>
+                    <div class="valid-feedback d-block" *ngIf="generatorForm.controls['c'].valid">Looks good!</div>
+                    <div class="invalid-feedback d-block" *ngIf="generatorForm.controls['c'].invalid && generatorForm.controls['c'].touched">Campo inválido</div>
                 </div>
             </div>
         </div>
@@ -133,16 +133,16 @@
 
     <!-- Get the parameters of the montecarlo simulation -->
     <div class="row justify-content-start m-3 p-5">
-        <div class="col">
+        <form [formGroup]="simulationForm" class="col">
             <div class="input-group">
                 <span class="input-group-text" id="basic-addon1">Número de simulaciones</span>
-                <input type="number" class="form-control">
+                <input type="number" class="form-control" formControlName="numberOfSimulations">
             </div>
-        </div>
-
-        <!-- <div class="col">
+        </form>
+        
+        <div class="col">
             <button type="button" (click)="submitAll()" [disabled]="!generatorForm.valid" class="btn btn-outline-dark">Simular</button>
-        </div> -->
+        </div>
         <div class="col">
             <button type="button" (click)="submitAll()" class="btn btn-outline-dark">Simular</button>
         </div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { ComponentService } from './cuartotp.service';
 import { Activity } from './helpers/Activity';
+import { MontecarloBody } from './helpers/MontecarloBody';
 
 @Component({
     selector: 'app-cuartotp',
@@ -9,13 +12,11 @@ import { Activity } from './helpers/Activity';
 })
 
 export class CuartotpComponent implements OnInit {
+    constructor(
+        private componentService: ComponentService
+    ) {};
 
-    constructor() {
-    };
-
-    ngOnInit(): void {
-        ;
-    };
+    ngOnInit(): void { ; };
 
     // The activities helps for the modularity of the HTML code.
     // Classes defined under './helpers/Activity.ts'
@@ -34,9 +35,31 @@ export class CuartotpComponent implements OnInit {
     };
 
     generatorForm: FormGroup = new FormGroup({
-        seed: new FormControl('' ,[Validators.required, Validators.min(0), Validators.max(1000000)]),
+        seed: new FormControl('' ,[Validators.required, Validators.min(0)]),
         mod: new FormControl('' ,[Validators.required, Validators.min(0)]),
         a: new FormControl('' ,[Validators.required, Validators.min(0)]),
         c: new FormControl('' ,[Validators.required, Validators.min(0)])
     });
+
+    simulationForm: FormGroup = new FormGroup({
+        numberOfSimulations: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(1000000)])
+    });
+
+    submitAll = () => {
+        console.log(this.simulationForm.value);
+        console.log(this.A1.distributionForm.value);
+        console.log(this.A2.distributionForm.value);
+        console.log(this.A3.distributionForm.value);
+        console.log(this.A4.distributionForm.value);
+        console.log(this.A5.distributionForm.value);
+        // const body: MontecarloBody = {
+        //     numberOfSimulations: this.simulationForm.value['numberOfSimulations']
+
+        // };
+    //     console.log(body);
+    //     this.componentService.setSimulation()
+    //         .subscribe(data => {
+    //             console.log(data);
+    //         });
+    };
 }
