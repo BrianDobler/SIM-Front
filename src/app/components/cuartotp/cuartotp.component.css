@@ -9,3 +9,8 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.table-responsive {
+    max-height: 500px;
+    overflow-y: scroll;
+}
