@@ -12,6 +12,9 @@ import { MontecarloBody } from './models/Montecarlo.model';
 })
 
 export class CuartotpComponent implements OnInit {
+    // Atributes. This comment is for organisation.
+    montecarloRows: any [];
+
     constructor(
         private componentService: ComponentService
     ) {};
@@ -64,16 +67,16 @@ export class CuartotpComponent implements OnInit {
 
         body.generatorType = (this.generatorType === 'native-generator') ? null : this.generatorForm.value; 
         body.activities = [
-            new ActivityModel(this.A1.name, this.A1.distributionForm.value),
-            new ActivityModel(this.A2.name, this.A2.distributionForm.value),
-            new ActivityModel(this.A3.name, this.A3.distributionForm.value),
-            new ActivityModel(this.A4.name, this.A4.distributionForm.value),
-            new ActivityModel(this.A5.name, this.A5.distributionForm.value),
+            new ActivityModel(this.A1.name, this.A1.distributionType, this.A1.distributionForm.value),
+            new ActivityModel(this.A2.name, this.A2.distributionType, this.A2.distributionForm.value),
+            new ActivityModel(this.A3.name, this.A3.distributionType, this.A3.distributionForm.value),
+            new ActivityModel(this.A4.name, this.A4.distributionType, this.A4.distributionForm.value),
+            new ActivityModel(this.A5.name, this.A5.distributionType, this.A5.distributionForm.value),
         ];
         
         this.componentService.setSimulation(body)
             .subscribe(data => {
-                console.log(data);
+                this.montecarloRows = data.activities;
             });
     };
 }
