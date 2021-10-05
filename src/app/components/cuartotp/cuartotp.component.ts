@@ -70,7 +70,7 @@ export class CuartotpComponent implements OnInit {
             new ActivityModel(this.A4.name, this.A4.distributionForm.value),
             new ActivityModel(this.A5.name, this.A5.distributionForm.value),
         ];
-        console.log(body);
+        
         this.componentService.setSimulation(body)
             .subscribe(data => {
                 console.log(data);

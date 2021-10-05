@@ -8,12 +8,9 @@
     </div>
 
     <!-- Select a random number generator for the distribution values -->
-    <div class="row justify-content-center m-4">
-        <div class="col">            
-            <p class="p-3 bg-dark text-white">Seleccione el generador a utilizar</p>
-             <!--<button type="button" class="btn btn-secondary">
-                Seleccione el generador a utilizar
-            </button> -->
+    <div class="row justify-content-center align-items-center m-4">
+        <div class="col">
+            <p class="p-3 bg-dark text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seleccione el generador a utilizar</p>            
         </div>
         <div class="col">
             <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined"
@@ -65,18 +62,17 @@
     </form>
 
     <!-- Renderiza un botón por cada tarea. -->
-    <div class="row justify-content-start m-3" *ngFor="let task of tasks; let i = index">
+    <div class="row justify-content-start align-items-center m-3" *ngFor="let task of tasks; let i = index">
         <!-- Activity name -->
-        <div class="col col-2">
-            <p class="p-4 bg-dark text-white">
-            
-            <!--<button type="button" class="btn btn-secondary"> -->
-                {{ task.name }}</p>
-            <!-- </button> -->
+        <div class="col">
+            <p class="p-3 bg-dark text-white">
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ task.name }}
+            </p>
         </div>
 
         <!-- Distribution selector -->
-        <div class="col col-4">
+        <div class="col">
             <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)'
                 aria-label="Default select example">
                 <option selected hidden>Default: {{ task.distributionType }}</option>
@@ -93,12 +89,16 @@
                 <div class="container">
                     <div class="input-group mb-3">
                         <span class="input-group-text">A</span>
-                        <input type="number" (change)="checkIfValid(task.name + task.distributionType + i + 'a', task.distributionForm.controls['A'])"
-                            id="{{ task.name + task.distributionType + i + 'a' }}" class="form-control" placeholder="A" formControlName="A">
+                        <input type="number"
+                            (change)="checkIfValid(task.name + task.distributionType + i + 'a', task.distributionForm.controls['A'])"
+                            id="{{ task.name + task.distributionType + i + 'a' }}" class="form-control" placeholder="A"
+                            formControlName="A">
 
                         <span class="input-group-text">B</span>
-                        <input type="number" (change)="checkIfValid(task.name + task.distributionType + i + 'b', task.distributionForm.controls['B'])"
-                            id="{{ task.name + task.distributionType + i + 'b' }}" class="form-control" placeholder="B" formControlName="B">
+                        <input type="number"
+                            (change)="checkIfValid(task.name + task.distributionType + i + 'b', task.distributionForm.controls['B'])"
+                            id="{{ task.name + task.distributionType + i + 'b' }}" class="form-control" placeholder="B"
+                            formControlName="B">
                     </div>
                 </div>
             </form>
@@ -110,24 +110,16 @@
                 <div class="container">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Mu</span>
-                        <input 
-                            type="number" 
+                        <input type="number"
                             (change)="checkIfValid(task.name + task.distributionType + i + 'mu', task.distributionForm.controls['mu'])"
-                            id="{{ task.name + task.distributionType + i + 'mu' }}" 
-                            class="form-control" 
-                            placeholder="Mu" 
-                            formControlName="mu"
-                        >
+                            id="{{ task.name + task.distributionType + i + 'mu' }}" class="form-control"
+                            placeholder="Mu" formControlName="mu">
 
                         <span class="input-group-text">Sigma</span>
-                        <input 
-                            type="number" 
-                            (change)="checkIfValid(task.name + task.distributionType + i + 'sigma', task.distributionForm.controls['sigma'])" 
-                            id="{{ task.name + task.distributionType + i + 'sigma' }}" 
-                            class="form-control" 
-                            placeholder="Sigma" 
-                            formControlName="sigma"
-                        >
+                        <input type="number"
+                            (change)="checkIfValid(task.name + task.distributionType + i + 'sigma', task.distributionForm.controls['sigma'])"
+                            id="{{ task.name + task.distributionType + i + 'sigma' }}" class="form-control"
+                            placeholder="Sigma" formControlName="sigma">
                     </div>
                 </div>
             </form>
@@ -139,8 +131,10 @@
                 <div class="container">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Lambda</span>
-                        <input type="number" (change)="checkIfValid(task.name + task.distributionType + i, task.distributionForm)"
-                            id="{{ task.name + task.distributionType + i }}" class="form-control" placeholder="Lambda" formControlName="lambda">
+                        <input type="number"
+                            (change)="checkIfValid(task.name + task.distributionType + i, task.distributionForm)"
+                            id="{{ task.name + task.distributionType + i }}" class="form-control" placeholder="Lambda"
+                            formControlName="lambda">
                     </div>
                 </div>
             </form>
@@ -172,48 +166,48 @@
         <!-- Acá va la tabla de la simulación montecarlo -->
         <div class="container border border-4">
             <div class="header">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="row">
-                      <p class="text-center">Dia</p>
-                    </th>
-                    <th scope="row">
-                      <p class="text-center">Random A1</p>
-                    </th>
-                    <th scope="row">
-                        <p class="text-center">Actividad 1</p>
-                    </th>
-                    <th scope="row">
-                        <p class="text-center">Random A2</p>
-                      </th>
-                    <th scope="row">
-                        <p class="text-center">Actividad 2</p>
-                    </th>
-                    <th scope="row">
-                        <p class="text-center">Random A3</p>
-                      </th>
-                    <th scope="row">
-                        <p class="text-center">Actividad 3</p>
-                    </th>
-                    <th scope="row">
-                        <p class="text-center">Random A5</p>
-                      </th>
-                    <th scope="row">
-                        <p class="text-center">Actividad 4</p>
-                    </th>
-                    <th scope="row">
-                        <p class="text-center">Random A5</p>
-                      </th>
-                    <th scope="row">
-                        <p class="text-center">Actividad 5</p>
-                    </th>
-                    <th scope="row">
-                        <p class="text-center">Tarea de Ensayo en Curso</p>
-                  </th>
-                  </tr>
-                </thead>
-              </table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="row">
+                                <p class="text-center">Dia</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Random A1</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Actividad 1</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Random A2</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Actividad 2</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Random A3</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Actividad 3</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Random A5</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Actividad 4</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Random A5</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Actividad 5</p>
+                            </th>
+                            <th scope="row">
+                                <p class="text-center">Tarea de Ensayo en Curso</p>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
+        </div>
     </div>
-</div>
