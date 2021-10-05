@@ -2,7 +2,7 @@
     <div class="row m-3">
         <div class="panel-heading"><br>
             <h3>
-                <p class="text-center">Simulacion Montecarlo</p>
+                Simulacion Montecarlo
             </h3>
         </div>
     </div>
@@ -10,7 +10,8 @@
     <!-- Select a random number generator for the distribution values -->
     <div class="row justify-content-center align-items-center m-4">
         <div class="col">
-            <p class="p-3 bg-dark text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seleccione el generador a utilizar</p>            
+            <p class="p-3 bg-dark text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seleccione el generador a
+                utilizar
         </div>
         <div class="col">
             <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined"
@@ -68,7 +69,7 @@
             <p class="p-3 bg-dark text-white">
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ task.name }}
-            </p>
+
         </div>
 
         <!-- Distribution selector -->
@@ -153,61 +154,48 @@
         </form>
 
         <div class="col">
-            <button type="button" (click)="submitAll()" [disabled]="!generatorForm.valid"
-                class="btn btn-outline-dark">Simular</button>
-        </div>
-        <div class="col">
             <button type="button" (click)="submitAll()" class="btn btn-outline-dark">Simular</button>
         </div>
     </div>
 
     <!-- Simulation Results -->
-    <div class="row">
+    <div class="row border border-4">
         <!-- Acá va la tabla de la simulación montecarlo -->
-        <div class="container border border-4">
-            <div class="header">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="row">
-                                <p class="text-center">Dia</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Random A1</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Actividad 1</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Random A2</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Actividad 2</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Random A3</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Actividad 3</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Random A5</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Actividad 4</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Random A5</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Actividad 5</p>
-                            </th>
-                            <th scope="row">
-                                <p class="text-center">Tarea de Ensayo en Curso</p>
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col"><p class="text-center">Dia</p></th>
+                        <th scope="col"><p class="text-center">Rand A1</p></th>
+                        <th scope="col"><p class="text-center">Actividad 1</p></th>
+                        <th scope="col"><p class="text-center">Rand A2</p></th>
+                        <th scope="col"><p class="text-center">Actividad 2</p></th>
+                        <th scope="col"><p class="text-center">Rand A3</p></th>
+                        <th scope="col"><p class="text-center">Actividad 3</p></th>
+                        <th scope="col"><p class="text-center">Rand A4</p></th>
+                        <th scope="col"><p class="text-center">Actividad 4</p></th>
+                        <th scope="col"><p class="text-center">Rand A5</p></th>
+                        <th scope="col"><p class="text-center">Actividad 5</p></th>
+                        <th scope="col"><p class="text-center">Tarea de Ensayo en Curso</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of montecarloRows; index as idx">
+                        <th scope="row">{{ idx }}</th>
+                        <td><p class="text-center">{{ i.randomA1 }}</p></td>
+                        <td><p class="text-center">{{ i.A1DaysLeft }}</p></td>
+                        <td><p class="text-center">{{ i.randomA2 }}</p></td>
+                        <td><p class="text-center">{{ i.A2DaysLeft }}</p></td>
+                        <td><p class="text-center">{{ i.randomA3 }}</p></td>
+                        <td><p class="text-center">{{ i.A3DaysLeft }}</p></td>
+                        <td><p class="text-center">{{ i.randomA4 }}</p></td>
+                        <td><p class="text-center">{{ i.A4DaysLeft }}</p></td>
+                        <td><p class="text-center">{{ i.randomA5 }}</p></td>
+                        <td><p class="text-center">{{ i.A5DaysLeft }}</p></td>
+                        <td><p class="text-center">{{ i.assemblyTaskDuration }}</p></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
