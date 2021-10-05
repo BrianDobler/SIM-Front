@@ -1,7 +1,7 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export class Activity {
-    // This class handles an activity. Made for handling ngfor on html.
+    // This class handles an activity. Made for handling ngFor on html.
     name: string;
     distributionType: string;
     distributionForm: FormGroup
