@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { ComponentService } from './cuartotp.service';
 import { Activity } from './helpers/Activity';
-import { MontecarloBody } from './helpers/MontecarloBody';
+import { ActivityModel } from './models/Activity.model';
+import { MontecarloBody } from './models/Montecarlo.model';
 
 @Component({
     selector: 'app-cuartotp',
@@ -46,33 +46,34 @@ export class CuartotpComponent implements OnInit {
     });
 
     checkIfValid = (tagId: string, form: AbstractControl) => {
-        var element = document.getElementById(tagId);
-        console.log(element);
+        const element = document.getElementById(tagId);
+
         if (form.valid) {
             element!.classList.remove('is-invalid');
             element!.classList.add('is-valid');
         } else {
-            console.log('no validada');
             element!.classList.remove('is-valid');
             element!.classList.add('is-invalid');
         }
     }
 
     submitAll = () => {
-        console.log(this.simulationForm.value);
-        console.log(this.A1.distributionForm.value);
-        console.log(this.A2.distributionForm.value);
-        console.log(this.A3.distributionForm.value);
-        console.log(this.A4.distributionForm.value);
-        console.log(this.A5.distributionForm.value);
-        // const body: MontecarloBody = {
-        //     numberOfSimulations: this.simulationForm.value['numberOfSimulations']
+        const body = new MontecarloBody();
+        body.numberOfSimulations = this.simulationForm.value['numberOfSimulations'];
+        body.generatorType = this.generatorType;
 
-        // };
-    //     console.log(body);
-    //     this.componentService.setSimulation()
-    //         .subscribe(data => {
-    //             console.log(data);
-    //         });
+        body.generatorType = (this.generatorType === 'native-generator') ? null : this.generatorForm.value; 
+        body.activities = [
+            new ActivityModel(this.A1.name, this.A1.distributionForm.value),
+            new ActivityModel(this.A2.name, this.A2.distributionForm.value),
+            new ActivityModel(this.A3.name, this.A3.distributionForm.value),
+            new ActivityModel(this.A4.name, this.A4.distributionForm.value),
+            new ActivityModel(this.A5.name, this.A5.distributionForm.value),
+        ];
+        console.log(body);
+        this.componentService.setSimulation(body)
+            .subscribe(data => {
+                console.log(data);
+            });
     };
 }
