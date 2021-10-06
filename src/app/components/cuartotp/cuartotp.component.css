@@ -11,6 +11,6 @@ input[type=number] {
 }
 
 .table-responsive {
-    max-height: 500px;
-    overflow-y: scroll;
+    height: 600px;
+    max-height: 600px;
 }
