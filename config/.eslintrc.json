@@ -54,7 +54,8 @@
             "code": 160
           }
         ],
-        "no-console": "off"
+        "no-console": "off",
+        "no-trailing-spaces": ["error"]
       }
     },
     {
