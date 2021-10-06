@@ -203,6 +203,12 @@
                         <th scope="col">
                             <p class="text-center">Tarea ensamble en Curso</p>
                         </th>
+                        <th scope="col">
+                            <p class="text-center">Duración de la última tarea de ensamble</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Duración media de la tarea de ensamble</p>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -243,9 +249,22 @@
                         <td>
                             <p class="text-center">{{ i.assemblyTaskDuration }}</p>
                         </td>
+                        <td>
+                            <p class="text-center">{{ i.lastAssemblyTaskDuration }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.mean }}</p>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- Simulation Graphics -->
+    <div class="row text-center mb-3">
+        <div class="col">
+          <canvas id="myChart"></canvas>
         </div>
     </div>
 </div>
