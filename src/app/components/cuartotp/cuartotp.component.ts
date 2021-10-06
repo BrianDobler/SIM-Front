@@ -4,6 +4,7 @@ import { ComponentService } from './cuartotp.service';
 import { Activity } from './helpers/Activity';
 import { ActivityModel } from './models/Activity.model';
 import { MontecarloBody } from './models/Montecarlo.model';
+import { Chart } from 'chart.js';
 
 @Component({
     selector: 'app-cuartotp',
@@ -46,7 +47,7 @@ export class CuartotpComponent implements OnInit {
 
     simulationForm: FormGroup = new FormGroup({
         numberOfSimulations: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(1000000)]),
-        from: new FormControl('', [Validators.min(1), Validators.max(1000000)]),
+        from: new FormControl('', [Validators.min(1), Validators.max(999999)]),
         to: new FormControl('', [Validators.min(1), Validators.max(1000000)])
     });
 
@@ -81,6 +82,21 @@ export class CuartotpComponent implements OnInit {
         this.componentService.setSimulation(body)
             .subscribe(data => {
                 this.montecarloRows = data.activities;
+                this.generateGraphic();
             });
     };
+
+    generateGraphic(): void {
+        const myChart = new Chart('myChart', {
+            type: 'line',
+            data: {
+                labels: this.montecarloRows.map((obj) => { return obj.day; }),
+                datasets: [{
+                    label: 'Frecuencias observadas.',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: this.montecarloRows.map((obj) => { return obj.mean; }),
+                }]
+            }
+        });
+    }
 }
