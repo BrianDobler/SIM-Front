@@ -15,6 +15,10 @@ import { Chart } from 'chart.js';
 export class CuartotpComponent implements OnInit {
     // Atributes. This comment is for organisation.
     montecarloRows: any [];
+    maxDuration: number = 0;
+    minDuration: number = 0;
+    mean: number = 0;
+    probFinishedLess45days: number = 0;
 
     constructor(
         private componentService: ComponentService
@@ -81,20 +85,34 @@ export class CuartotpComponent implements OnInit {
 
         this.componentService.setSimulation(body)
             .subscribe(data => {
+                // Get the generated simulations.
                 this.montecarloRows = data.activities;
-                this.generateGraphic();
+
+                // Get the min and max value
+                this.minDuration = data.minValue;
+                this.maxDuration = data.maxValue;
+                this.mean = data.mean;
+                this.probFinishedLess45days = data.probFinishedLess45days;
+
+                // Filter the null mean simulations. Ussualy are the first 50.
+                const bar = this.montecarloRows.filter((obj) => obj.mean !== 0 );
+                // Generate labels and dataset from the temporary array.
+                const labels = bar.map((obj) => obj.day );
+                const dataset = bar.map((obj) => obj.mean);
+                // Generate the graphic.
+                this.generateGraphic(dataset, labels);
             });
     };
 
-    generateGraphic(): void {
+    generateGraphic(dataset: number[], labels: number[]): void {
         const myChart = new Chart('myChart', {
             type: 'line',
             data: {
-                labels: this.montecarloRows.map((obj) => { return obj.day; }),
+                labels: labels,
                 datasets: [{
-                    label: 'Frecuencias observadas.',
+                    label: 'Duración media en días de la tarea de ensamble',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: this.montecarloRows.map((obj) => { return obj.mean; }),
+                    data: dataset,
                 }]
             }
         });
