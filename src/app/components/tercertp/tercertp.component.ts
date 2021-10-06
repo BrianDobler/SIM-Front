@@ -76,7 +76,7 @@ export class TercertpComponent implements OnInit {
             '&mu=' + this.normalDistributionForm.value['mu'] +
             '&sigma=' + this.normalDistributionForm.value['sigma'] +
             '&numberOfIntervals=' + this.normalDistributionForm.value['numberOfIntervals'];
-            
+
             break;
 
         case 'exponential-distribution':
@@ -103,7 +103,7 @@ export class TercertpComponent implements OnInit {
             '&a=' + this.uniformDistributionForm.value['a'] +
             '&b=' + this.uniformDistributionForm.value['b'] +
             '&numberOfIntervals=' + this.uniformDistributionForm.value['numberOfIntervals'];
-            
+
             break;
         }
 
