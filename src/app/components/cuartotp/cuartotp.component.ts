@@ -45,7 +45,9 @@ export class CuartotpComponent implements OnInit {
     });
 
     simulationForm: FormGroup = new FormGroup({
-        numberOfSimulations: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(1000000)])
+        numberOfSimulations: new FormControl(1, [Validators.required, Validators.min(1), Validators.max(1000000)]),
+        from: new FormControl('', [Validators.min(1), Validators.max(1000000)]),
+        to: new FormControl('', [Validators.min(1), Validators.max(1000000)])
     });
 
     checkIfValid = (tagId: string, form: AbstractControl) => {
@@ -63,9 +65,11 @@ export class CuartotpComponent implements OnInit {
     submitAll = () => {
         const body = new MontecarloBody();
         body.numberOfSimulations = this.simulationForm.value['numberOfSimulations'];
+        body.from = this.simulationForm.value['from'];
+        body.to = this.simulationForm.value['to'];
         body.generatorType = this.generatorType;
 
-        body.generatorType = (this.generatorType === 'native-generator') ? null : this.generatorForm.value; 
+        body.generatorType = (this.generatorType === 'native-generator') ? null : this.generatorForm.value;
         body.activities = [
             new ActivityModel(this.A1.name, this.A1.distributionType, this.A1.distributionForm.value),
             new ActivityModel(this.A2.name, this.A2.distributionType, this.A2.distributionForm.value),
@@ -73,7 +77,7 @@ export class CuartotpComponent implements OnInit {
             new ActivityModel(this.A4.name, this.A4.distributionType, this.A4.distributionForm.value),
             new ActivityModel(this.A5.name, this.A5.distributionType, this.A5.distributionForm.value),
         ];
-        
+
         this.componentService.setSimulation(body)
             .subscribe(data => {
                 this.montecarloRows = data.activities;
