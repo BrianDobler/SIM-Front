@@ -12,8 +12,8 @@
         <div class="card-body">
             <div class="row justify-content-around">
                 <div class="col-4">
-                    <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined"
-                        id="success-outlined" autocomplete="off" checked>
+                    <input (click)="setGenerator('native-generator')" type="radio" class="btn-check"
+                        name="options-outlined" id="success-outlined" autocomplete="off" checked>
                     <label class="btn btn-outline-success" for="success-outlined">Generador Nativo</label>
                 </div>
                 <div class="col-4">
@@ -22,7 +22,7 @@
                     <label class="btn btn-outline-danger" for="danger-outlined">Generador Congruencial Lineal</label>
                 </div>
             </div>
-        
+
             <!-- Render the fields to set the linear congruential generator -->
             <form [formGroup]="generatorForm" class="row" *ngIf="generatorType === 'congruential-generator'">
                 <div class="col">
@@ -83,14 +83,14 @@
                         <span class="input-group-text">A</span>
                         <input type="number"
                             (change)="checkIfValid(task.name + task.distributionType + i + 'a', task.distributionForm.controls['A'])"
-                            id="{{ task.name + task.distributionType + i + 'a' }}" class="form-control"
-                            placeholder="A" formControlName="A">
+                            id="{{ task.name + task.distributionType + i + 'a' }}" class="form-control" placeholder="A"
+                            formControlName="A">
 
                         <span class="input-group-text">B</span>
                         <input type="number"
                             (change)="checkIfValid(task.name + task.distributionType + i + 'b', task.distributionForm.controls['B'])"
-                            id="{{ task.name + task.distributionType + i + 'b' }}" class="form-control"
-                            placeholder="B" formControlName="B">
+                            id="{{ task.name + task.distributionType + i + 'b' }}" class="form-control" placeholder="B"
+                            formControlName="B">
                     </div>
                 </div>
             </form>
@@ -102,8 +102,8 @@
                     <span class="input-group-text">Mu</span>
                     <input type="number"
                         (change)="checkIfValid(task.name + task.distributionType + i + 'mu', task.distributionForm.controls['mu'])"
-                        id="{{ task.name + task.distributionType + i + 'mu' }}" class="form-control"
-                        placeholder="Mu" formControlName="mu">
+                        id="{{ task.name + task.distributionType + i + 'mu' }}" class="form-control" placeholder="Mu"
+                        formControlName="mu">
 
                     <span class="input-group-text">Sigma</span>
                     <input type="number"
@@ -119,9 +119,9 @@
                     <span class="input-group-text">Lambda</span>
                     <input type="number"
                         (change)="checkIfValid(task.name + task.distributionType + i, task.distributionForm)"
-                        id="{{ task.name + task.distributionType + i }}" class="form-control"
-                        placeholder="Lambda" formControlName="lambda">
-                </div>  
+                        id="{{ task.name + task.distributionType + i }}" class="form-control" placeholder="Lambda"
+                        formControlName="lambda">
+                </div>
             </form>
         </div>
     </div>
@@ -206,9 +206,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let i of montecarloRows; index as idx">
-                        <th scope="row">{{ idx }}</th>
-                        <td><p class="text-center">{{ i.randomA1 }}</p></td>
+                    <tr *ngFor="let i of montecarloRows">
+                        <th scope="row">
+                            <p class="text-center">{{ i.day }}</p>
+                        </th>
+                        <td>
+                            <p class="text-center">{{ i.randomA1 }}</p>
+                        </td>
                         <td>
                             <p class="text-center">{{ i.A1DaysLeft }}</p>
                         </td>
