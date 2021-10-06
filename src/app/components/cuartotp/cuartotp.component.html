@@ -63,17 +63,15 @@
     <!-- Renderiza un botón por cada tarea. -->
     <div class="card m-2" *ngFor="let task of tasks; let i = index">
         <!-- Activity name -->
-        <h6 class="card-header">{{ task.name }}</h6>
-
+        <h6 class="card-header">Seleccione la distribución y sus parámetros para {{ task.name }}</h6>
         <div class="row align-items-center m-2">
             <!-- Distribution selector -->
             <div class="col">
-                <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)'
-                    aria-label="Default select example">
-                    <option selected hidden>Default: {{ task.distributionType }}</option>
-                    <option value="uniform">Uniforme</option>
-                    <option value="exponential">Exponencial</option>
-                    <option value="normal">Normal</option>
+                <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)'>
+                    <option selected>Seleccione el tipo de distribución</option>
+                    <option value="uniform">Distribución Uniforme</option>
+                    <option value="exponential">Distribución Exponencial</option>
+                    <option value="normal">Distribución Normal</option>
                 </select>
             </div>
 
