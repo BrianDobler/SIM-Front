@@ -1,160 +1,164 @@
 <div class="container">
     <div class="row m-3">
         <div class="panel-heading"><br>
-            <h3>
-                Simulacion Montecarlo
-            </h3>
+            <h3>Simulacion Montecarlo</h3>
         </div>
     </div>
 
     <!-- Select a random number generator for the distribution values -->
-    <div class="row justify-content-center align-items-center m-4">
-        <div class="col">
-            <p class="p-3 bg-dark text-white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seleccione el generador a
-                utilizar
-        </div>
-        <div class="col">
-            <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined"
-                id="success-outlined" autocomplete="off" checked>
-            <label class="btn btn-outline-success" for="success-outlined">Generador Nativo</label>
-        </div>
-        <div class="col">
-            <input (click)="setGenerator('congruential-generator')" type="radio" class="btn-check"
-                name="options-outlined" id="danger-outlined" autocomplete="off">
-            <label class="btn btn-outline-danger" for="danger-outlined">Generador Congruencial Lineal</label>
+    <div class="card m-2">
+        <!-- Card Title -->
+        <h6 class="card-header">Seleccione el generador a utilizar</h6>
+        <div class="card-body">
+            <div class="row justify-content-around">
+                <div class="col-4">
+                    <input (click)="setGenerator('native-generator')" type="radio" class="btn-check" name="options-outlined"
+                        id="success-outlined" autocomplete="off" checked>
+                    <label class="btn btn-outline-success" for="success-outlined">Generador Nativo</label>
+                </div>
+                <div class="col-4">
+                    <input (click)="setGenerator('congruential-generator')" type="radio" class="btn-check"
+                        name="options-outlined" id="danger-outlined" autocomplete="off">
+                    <label class="btn btn-outline-danger" for="danger-outlined">Generador Congruencial Lineal</label>
+                </div>
+            </div>
+        
+            <!-- Render the fields to set the linear congruential generator -->
+            <form [formGroup]="generatorForm" class="row" *ngIf="generatorType === 'congruential-generator'">
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text">Semilla</span>
+                        <input type="number" (change)="checkIfValid('seed', generatorForm.controls['seed'])" id="seed"
+                            class="form-control" placeholder="Semilla" formControlName="seed">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text">Módulo</span>
+                        <input type="number" (change)="checkIfValid('mod', generatorForm.controls['mod'])" id="mod"
+                            class="form-control" placeholder="Módulo" formControlName="mod">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text">A</span>
+                        <input type="number" (change)="checkIfValid('a', generatorForm.controls['a'])" id="a"
+                            class="form-control" placeholder="A" formControlName="a">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input-group">
+                        <span class="input-group-text">C</span>
+                        <input type="number" (change)="checkIfValid('c', generatorForm.controls['c'])" id="c"
+                            class="form-control" placeholder="C" formControlName="c">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Render the fields to set the linear congruential generator -->
-    <form [formGroup]="generatorForm" class="container m-4" *ngIf="generatorType === 'congruential-generator'">
-        <div class="row">
-            <div class="col">
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Semilla</span>
-                    <input type="number" (change)="checkIfValid('seed', generatorForm.controls['seed'])" id="seed"
-                        class="form-control" placeholder="Semilla" formControlName="seed">
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Módulo</span>
-                    <input type="number" (change)="checkIfValid('mod', generatorForm.controls['mod'])" id="mod"
-                        class="form-control" placeholder="Módulo" formControlName="mod">
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="input-group mb-3">
-                    <span class="input-group-text">A</span>
-                    <input type="number" (change)="checkIfValid('a', generatorForm.controls['a'])" id="a"
-                        class="form-control" placeholder="A" formControlName="a">
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="input-group mb-3">
-                    <span class="input-group-text">C</span>
-                    <input type="number" (change)="checkIfValid('c', generatorForm.controls['c'])" id="c"
-                        class="form-control" placeholder="C" formControlName="c">
-                </div>
-            </div>
-        </div>
-    </form>
-
     <!-- Renderiza un botón por cada tarea. -->
-    <div class="row justify-content-start align-items-center m-3" *ngFor="let task of tasks; let i = index">
+    <div class="card m-2" *ngFor="let task of tasks; let i = index">
         <!-- Activity name -->
-        <div class="col">
-            <p class="p-3 bg-dark text-white">
+        <h6 class="card-header">{{ task.name }}</h6>
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ task.name }}
+        <div class="row align-items-center m-2">
+            <!-- Distribution selector -->
+            <div class="col">
+                <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)'
+                    aria-label="Default select example">
+                    <option selected hidden>Default: {{ task.distributionType }}</option>
+                    <option value="uniform">Uniforme</option>
+                    <option value="exponential">Exponencial</option>
+                    <option value="normal">Normal</option>
+                </select>
+            </div>
 
-        </div>
-
-        <!-- Distribution selector -->
-        <div class="col">
-            <select class="form-select" #nomselec (change)='task.selectDistribution(nomselec.value)'
-                aria-label="Default select example">
-                <option selected hidden>Default: {{ task.distributionType }}</option>
-                <option value="uniform">Uniforme</option>
-                <option value="exponential">Exponencial</option>
-                <option value="normal">Normal</option>
-            </select>
-        </div>
-
-        <!-- Depends on the distribution selected for each task -->
-        <!-- Uniform distribution -->
-        <div class="col col-6" *ngIf="task.distributionType === 'uniform'">
-            <form [formGroup]="task.distributionForm">
+            <!-- Depends on the distribution selected for each task -->
+            <!-- Uniform distribution -->
+            <form [formGroup]="task.distributionForm" class="col col-6" *ngIf="task.distributionType === 'uniform'">
                 <div class="container">
-                    <div class="input-group mb-3">
+                    <div class="input-group">
                         <span class="input-group-text">A</span>
                         <input type="number"
                             (change)="checkIfValid(task.name + task.distributionType + i + 'a', task.distributionForm.controls['A'])"
-                            id="{{ task.name + task.distributionType + i + 'a' }}" class="form-control" placeholder="A"
-                            formControlName="A">
+                            id="{{ task.name + task.distributionType + i + 'a' }}" class="form-control"
+                            placeholder="A" formControlName="A">
 
                         <span class="input-group-text">B</span>
                         <input type="number"
                             (change)="checkIfValid(task.name + task.distributionType + i + 'b', task.distributionForm.controls['B'])"
-                            id="{{ task.name + task.distributionType + i + 'b' }}" class="form-control" placeholder="B"
-                            formControlName="B">
+                            id="{{ task.name + task.distributionType + i + 'b' }}" class="form-control"
+                            placeholder="B" formControlName="B">
                     </div>
                 </div>
             </form>
-        </div>
 
-        <!-- Normal distribution -->
-        <div class="col col-6" *ngIf="task.distributionType === 'normal'">
-            <form [formGroup]="task.distributionForm">
-                <div class="container">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Mu</span>
-                        <input type="number"
-                            (change)="checkIfValid(task.name + task.distributionType + i + 'mu', task.distributionForm.controls['mu'])"
-                            id="{{ task.name + task.distributionType + i + 'mu' }}" class="form-control"
-                            placeholder="Mu" formControlName="mu">
 
-                        <span class="input-group-text">Sigma</span>
-                        <input type="number"
-                            (change)="checkIfValid(task.name + task.distributionType + i + 'sigma', task.distributionForm.controls['sigma'])"
-                            id="{{ task.name + task.distributionType + i + 'sigma' }}" class="form-control"
-                            placeholder="Sigma" formControlName="sigma">
-                    </div>
+            <!-- Normal distribution -->
+            <form [formGroup]="task.distributionForm" class="col col-6" *ngIf="task.distributionType === 'normal'">
+                <div class="input-group">
+                    <span class="input-group-text">Mu</span>
+                    <input type="number"
+                        (change)="checkIfValid(task.name + task.distributionType + i + 'mu', task.distributionForm.controls['mu'])"
+                        id="{{ task.name + task.distributionType + i + 'mu' }}" class="form-control"
+                        placeholder="Mu" formControlName="mu">
+
+                    <span class="input-group-text">Sigma</span>
+                    <input type="number"
+                        (change)="checkIfValid(task.name + task.distributionType + i + 'sigma', task.distributionForm.controls['sigma'])"
+                        id="{{ task.name + task.distributionType + i + 'sigma' }}" class="form-control"
+                        placeholder="Sigma" formControlName="sigma">
                 </div>
             </form>
-        </div>
 
-        <!-- Exponential distribution -->
-        <div class="col col-6" *ngIf="task.distributionType === 'exponential'">
-            <form [formGroup]="task.distributionForm">
-                <div class="container">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Lambda</span>
-                        <input type="number"
-                            (change)="checkIfValid(task.name + task.distributionType + i, task.distributionForm)"
-                            id="{{ task.name + task.distributionType + i }}" class="form-control" placeholder="Lambda"
-                            formControlName="lambda">
-                    </div>
-                </div>
+            <!-- Exponential distribution -->
+            <form [formGroup]="task.distributionForm" class="col col-6" *ngIf="task.distributionType === 'exponential'">
+                <div class="input-group">
+                    <span class="input-group-text">Lambda</span>
+                    <input type="number"
+                        (change)="checkIfValid(task.name + task.distributionType + i, task.distributionForm)"
+                        id="{{ task.name + task.distributionType + i }}" class="form-control"
+                        placeholder="Lambda" formControlName="lambda">
+                </div>  
             </form>
         </div>
     </div>
 
     <!-- Get the parameters of the montecarlo simulation -->
-    <div class="row justify-content-start m-3 p-5">
-        <form [formGroup]="simulationForm" class="col">
-            <div class="input-group">
-                <span class="input-group-text">Número de simulaciones</span>
-                <input type="number"
-                    (change)="checkIfValid('numberOfSimulations', simulationForm.controls['numberOfSimulations'])"
-                    id="numberOfSimulations" class="form-control" formControlName="numberOfSimulations">
+    <div class="card m-5">
+        <h6 class="card-header">Seleccionemos ahora algunos parámetros de la simulación</h6>
+        <form [formGroup]="simulationForm" class="row justify-content-start m-3">
+            <div class="col-6">
+                <div class="input-group">
+                    <span class="input-group-text">Número de simulaciones</span>
+                    <input type="number"
+                        (change)="checkIfValid('numberOfSimulations', simulationForm.controls['numberOfSimulations'])"
+                        id="numberOfSimulations" class="form-control" formControlName="numberOfSimulations">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text">Desde</span>
+                    <input type="number" (change)="checkIfValid('from', simulationForm.controls['from'])" id="from"
+                        class="form-control" formControlName="from">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group">
+                    <span class="input-group-text ">Hasta</span>
+                    <input type="number" (change)="checkIfValid('to', simulationForm.controls['to'])" id="to"
+                        class="form-control" formControlName="to">
+                </div>
             </div>
         </form>
-
-        <div class="col">
-            <button type="button" (click)="submitAll()" class="btn btn-outline-dark">Simular</button>
+        <div class="row m-3">
+            <div class="col">
+                <button type="button" (click)="submitAll()" class="btn btn-outline-dark">Simular</button>
+            </div>
         </div>
     </div>
 
@@ -165,34 +169,78 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col"><p class="text-center">Dia</p></th>
-                        <th scope="col"><p class="text-center">Rand A1</p></th>
-                        <th scope="col"><p class="text-center">Actividad 1</p></th>
-                        <th scope="col"><p class="text-center">Rand A2</p></th>
-                        <th scope="col"><p class="text-center">Actividad 2</p></th>
-                        <th scope="col"><p class="text-center">Rand A3</p></th>
-                        <th scope="col"><p class="text-center">Actividad 3</p></th>
-                        <th scope="col"><p class="text-center">Rand A4</p></th>
-                        <th scope="col"><p class="text-center">Actividad 4</p></th>
-                        <th scope="col"><p class="text-center">Rand A5</p></th>
-                        <th scope="col"><p class="text-center">Actividad 5</p></th>
-                        <th scope="col"><p class="text-center">Tarea de Ensayo en Curso</p></th>
+                        <th scope="col">
+                            <p class="text-center">Dia</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Rand A1</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Actividad 1</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Rand A2</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Actividad 2</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Rand A3</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Actividad 3</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Rand A4</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Actividad 4</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Rand A5</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Actividad 5</p>
+                        </th>
+                        <th scope="col">
+                            <p class="text-center">Tarea ensamble en Curso</p>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let i of montecarloRows; index as idx">
                         <th scope="row">{{ idx }}</th>
                         <td><p class="text-center">{{ i.randomA1 }}</p></td>
-                        <td><p class="text-center">{{ i.A1DaysLeft }}</p></td>
-                        <td><p class="text-center">{{ i.randomA2 }}</p></td>
-                        <td><p class="text-center">{{ i.A2DaysLeft }}</p></td>
-                        <td><p class="text-center">{{ i.randomA3 }}</p></td>
-                        <td><p class="text-center">{{ i.A3DaysLeft }}</p></td>
-                        <td><p class="text-center">{{ i.randomA4 }}</p></td>
-                        <td><p class="text-center">{{ i.A4DaysLeft }}</p></td>
-                        <td><p class="text-center">{{ i.randomA5 }}</p></td>
-                        <td><p class="text-center">{{ i.A5DaysLeft }}</p></td>
-                        <td><p class="text-center">{{ i.assemblyTaskDuration }}</p></td>
+                        <td>
+                            <p class="text-center">{{ i.A1DaysLeft }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.randomA2 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A2DaysLeft }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.randomA3 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A3DaysLeft }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.randomA4 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A4DaysLeft }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.randomA5 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A5DaysLeft }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.assemblyTaskDuration }}</p>
+                        </td>
                     </tr>
                 </tbody>
             </table>
