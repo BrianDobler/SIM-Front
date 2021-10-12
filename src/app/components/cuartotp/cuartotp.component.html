@@ -201,10 +201,13 @@
                             <p class="text-center">Actividad 5</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
-                            <p class="text-center">Camino A1 - A4</p>
+                            <p class="text-center">Camino 1 - (A1 - A4 - A5)</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
-                            <p class="text-center">Camino (A2 | A4) - A5</p>
+                            <p class="text-center">Camino 2 - (A2 - A5)</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Camino 3 - (A3)</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
                             <p class="text-center">Duración tarea</p>
@@ -259,10 +262,13 @@
                             <p class="text-center">{{ i.A5DaysLeft }}</p>
                         </td>
                         <td>
-                            <p class="text-center">{{ i.path4 }}</p>
+                            <p class="text-center">{{ i.path1 }}</p>
                         </td>
                         <td>
-                            <p class="text-center">{{ i.path5 }}</p>
+                            <p class="text-center">{{ i.path2 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.path3 }}</p>
                         </td>
                         <td>
                             <p class="text-center">{{ i.assemblyTaskDuration }}</p>
@@ -301,7 +307,7 @@
                     <li class="list-group-item">Probabilidad de finalizar la tarea < 45 días: {{ (probFinishedLess45days !== 0) ? probFinishedLess45days : '-' }}</li>
                     <li class="list-group-item">Varianza: {{ (variance !== 0) ? variance : '-' }}</li>
                     <li class="list-group-item">Desviación: {{ (deviation !== 0) ? deviation : '-' }}</li>
-                    <li class="list-group-item">Fecha a fijar NC 90%: {{ (dateNC90 !== 0) ? dateNC90 : '-' }}</li>
+                    <li class="list-group-item">Un 90% de las pruebas dieron {{ (dateNC90 !== 0) ? dateNC90 : '-' }} días o menos.</li>
                 </ul>    
             </div>
         </div>
