@@ -170,44 +170,56 @@
                         <th scope="col">
                             <p class="text-center">Dia</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Rand A1</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Actividad 1</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Rand A2</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Actividad 2</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Rand A3</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Actividad 3</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Rand A4</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Actividad 4</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Rand A5</p>
                         </th>
-                        <th scope="col">
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Actividad 5</p>
                         </th>
-                        <th scope="col">
-                            <p class="text-center">Tarea ensamble en Curso</p>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Camino A1 - A4</p>
                         </th>
-                        <th scope="col">
-                            <p class="text-center">Duración de la última tarea de ensamble</p>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Camino (A2 | A4) - A5</p>
                         </th>
-                        <th scope="col">
-                            <p class="text-center">Duración media de la tarea de ensamble</p>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Duración tarea</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Duración media</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Varianza</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Desviación</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Fecha  NC 90%</p>
                         </th>
                     </tr>
                 </thead>
@@ -247,13 +259,25 @@
                             <p class="text-center">{{ i.A5DaysLeft }}</p>
                         </td>
                         <td>
+                            <p class="text-center">{{ i.path4 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.path5 }}</p>
+                        </td>
+                        <td>
                             <p class="text-center">{{ i.assemblyTaskDuration }}</p>
                         </td>
                         <td>
-                            <p class="text-center">{{ i.lastAssemblyTaskDuration }}</p>
+                            <p class="text-center">{{ i.mean }}</p>
                         </td>
                         <td>
-                            <p class="text-center">{{ i.mean }}</p>
+                            <p class="text-center">{{ i.variance }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.standardDeviation }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.dateNC90 }}</p>
                         </td>
                     </tr>
                 </tbody>
@@ -273,8 +297,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Duración máxima de la tarea de ensamble: {{ (maxDuration !== 0) ? maxDuration : '-' }} días</li>
                     <li class="list-group-item">Duración minima de la tarea de ensamble: {{ (minDuration !== 0) ? minDuration : '-' }} días</li>
-                    <li class="list-group-item">Duración meida de la tarea de ensamble: {{ (mean !== 0) ? mean : '-' }} días</li>
-                    <li class="list-group-item">Probabilidad de finalizar la tarea en menos de 45 días: {{ (probFinishedLess45days !== 0) ? probFinishedLess45days : '-' }}</li>
+                    <li class="list-group-item">Duración media de la tarea de ensamble: {{ (mean !== 0) ? mean : '-' }} días</li>
+                    <li class="list-group-item">Probabilidad de finalizar la tarea < 45 días: {{ (probFinishedLess45days !== 0) ? probFinishedLess45days : '-' }}</li>
+                    <li class="list-group-item">Varianza: {{ (variance !== 0) ? variance : '-' }}</li>
+                    <li class="list-group-item">Desviación: {{ (deviation !== 0) ? deviation : '-' }}</li>
+                    <li class="list-group-item">Fecha a fijar NC 90%: {{ (dateNC90 !== 0) ? dateNC90 : '-' }}</li>
                 </ul>    
             </div>
         </div>

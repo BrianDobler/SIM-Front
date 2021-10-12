@@ -19,6 +19,9 @@ export class CuartotpComponent implements OnInit {
     minDuration: number = 0;
     mean: number = 0;
     probFinishedLess45days: number = 0;
+    deviation: number = 0;
+    variance: number = 0;
+    dateNC90: number = 0;
 
     constructor(
         private componentService: ComponentService
@@ -43,10 +46,10 @@ export class CuartotpComponent implements OnInit {
     };
 
     generatorForm: FormGroup = new FormGroup({
-        seed: new FormControl('' ,[Validators.required, Validators.min(0)]),
-        mod: new FormControl('' ,[Validators.required, Validators.min(0)]),
-        a: new FormControl('' ,[Validators.required, Validators.min(0)]),
-        c: new FormControl('' ,[Validators.required, Validators.min(0)])
+        seed: new FormControl(489785354 ,[Validators.required, Validators.min(0)]),
+        mod: new FormControl(3578942135498 ,[Validators.required, Validators.min(0)]),
+        a: new FormControl(1234512354 ,[Validators.required, Validators.min(0)]),
+        c: new FormControl(1597563687 ,[Validators.required, Validators.min(0)])
     });
 
     simulationForm: FormGroup = new FormGroup({
@@ -93,12 +96,13 @@ export class CuartotpComponent implements OnInit {
                 this.maxDuration = data.maxValue;
                 this.mean = data.mean;
                 this.probFinishedLess45days = data.probFinishedLess45days;
+                this.variance = data.variance;
+                this.deviation = data.deviation;
+                this.dateNC90 = data.dateNC90;
 
-                // Filter the null mean simulations. Ussualy are the first 50.
-                const bar = this.montecarloRows.filter((obj) => obj.mean !== 0 );
                 // Generate labels and dataset from the temporary array.
-                const labels = bar.map((obj) => obj.day );
-                const dataset = bar.map((obj) => obj.mean);
+                const labels = data.activities.map( (obj: any) => obj.day );
+                const dataset = data.activities.map( (obj: any) => obj.mean );
                 // Generate the graphic.
                 this.generateGraphic(dataset, labels);
             });
