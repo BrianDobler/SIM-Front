@@ -213,6 +213,9 @@
                             <p class="text-center">Duración tarea</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Camino Critico</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Duración media</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
@@ -223,6 +226,36 @@
                         </th>
                         <th scope="col" nowrap="nowrap">
                             <p class="text-center">Fecha  NC 90%</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Actividad 1</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Actividad 2</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Actividad 3</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Actividad 4</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Actividad 5</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Crit A1</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Crit A2</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Crit A3</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Crit A4</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Crit A5</p>
                         </th>
                     </tr>
                 </thead>
@@ -274,6 +307,9 @@
                             <p class="text-center">{{ i.assemblyTaskDuration }}</p>
                         </td>
                         <td>
+                            <p class="text-center">{{ i.criticalPath }}</p>
+                        </td>
+                        <td>
                             <p class="text-center">{{ i.mean }}</p>
                         </td>
                         <td>
@@ -284,6 +320,36 @@
                         </td>
                         <td>
                             <p class="text-center">{{ i.dateNC90 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A1 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A2 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A3 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A4 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.A5 }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.criticalA1 * 100 }}%</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.criticalA2 * 100 }}%</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.criticalA3 * 100 }}%</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.criticalA4 * 100 }}%</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.criticalA5 * 100 }}%</p>
                         </td>
                     </tr>
                 </tbody>
