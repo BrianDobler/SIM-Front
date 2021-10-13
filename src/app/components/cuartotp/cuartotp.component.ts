@@ -22,6 +22,7 @@ export class CuartotpComponent implements OnInit {
     deviation: number = 0;
     variance: number = 0;
     dateNC90: number = 0;
+    Math = Math;
 
     constructor(
         private componentService: ComponentService
