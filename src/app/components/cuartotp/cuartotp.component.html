@@ -219,6 +219,12 @@
                             <p class="text-center">Duración media</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Prob < 45 Dias</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
+                            <p class="text-center">Prob < 45 Dias Media</p>
+                        </th>
+                        <th scope="col" nowrap="nowrap">
                             <p class="text-center">Varianza</p>
                         </th>
                         <th scope="col" nowrap="nowrap">
@@ -405,6 +411,12 @@
                         </td>
                         <td>
                             <p class="text-center">{{ i.mean }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.probability }}</p>
+                        </td>
+                        <td>
+                            <p class="text-center">{{ i.probabilityMean }}</p>
                         </td>
                         <td>
                             <p class="text-center">{{ i.variance }}</p>
