@@ -26,13 +26,13 @@ export class Activity {
     };
 
     setDistributionForm = (valueA?: number, valueB?: number): void => {
-        // Depends on the type of distribution that is selected. 
+        // Depends on the type of distribution that is selected.
         // Set certain distribution form.
         if (this.distributionType === 'uniform') {
             this.distributionForm =  new FormGroup({
                 A: new FormControl((valueA !==  null) ? valueA : '', [Validators.required]),
                 B: new FormControl((valueB !==  null) ? valueB : '', [Validators.required])
-            });   
+            });
         } else if (this.distributionType === 'normal') {
             this.distributionForm =  new FormGroup({
                 mu: new FormControl((valueA !==  null) ? valueA : '', [Validators.required, Validators.min(0)]),
@@ -40,7 +40,7 @@ export class Activity {
             });
         } else if (this.distributionType === 'exponential') {
             this.distributionForm =  new FormGroup({
-                lambda: new FormControl((valueA !==  null) ? valueA : '', [Validators.required, Validators.min(0)])
+                lambda: new FormControl((valueA !==  null) ? valueA : '', [Validators.required, Validators.min(1)])
             });
         }
     };
